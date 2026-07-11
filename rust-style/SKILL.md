@@ -67,6 +67,8 @@ taplo check
 3. 返回错误用 `Result<T, E>`；分层见上方硬规则
 4. 避免裸 `unwrap` / `expect`（测试与「逻辑上不可能」处除外）；`expect` 须写清原因
 5. 需要内部可变或共享状态时，明确选 `Cell`/`RefCell`/`Mutex`/`RwLock`/`Arc`，并说明线程假设
+6. `async` 任务要传播 `CancellationToken`/等效取消；`spawn` 的任务要有人接合或明确 detach 理由
+7. 跨 `await` 持有 `MutexGuard` 需格外谨慎；优先缩短临界区或改用通道
 
 ## 类型与抽象
 

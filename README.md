@@ -1,7 +1,7 @@
 # Harness Skills
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-20-brightgreen.svg)](README.md)
+[![Skills](https://img.shields.io/badge/skills-23-brightgreen.svg)](README.md)
 [![CI](https://github.com/noisystreet/harness-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/noisystreet/harness-skills/actions/workflows/ci.yml)
 [![AI Agents](https://img.shields.io/badge/AI%20Agents-Harness%20Skills-purple.svg)](README.md)
 [![GitHub repo](https://img.shields.io/badge/GitHub-noisystreet%2Fharness--skills-black.svg)](https://github.com/noisystreet/harness-skills)
@@ -41,6 +41,9 @@ harness-skills/
 ├── debugging/            # 系统化排障流程
 │   ├── SKILL.md
 │   └── examples.md
+├── data-modeling/        # 领域模型、不变量、一致性边界
+│   ├── SKILL.md
+│   └── examples.md
 ├── dependency-management/ # 依赖选型、锁定、审计与升级
 │   ├── SKILL.md
 │   └── examples.md
@@ -55,6 +58,9 @@ harness-skills/
 │       ├── pr-feature.md
 │       ├── pr-bugfix.md
 │       └── pr-hotfix.md
+├── migration/            # Schema / API / 数据迁移与兼容窗口
+│   ├── SKILL.md
+│   └── examples.md
 ├── observability/        # 日志 / 指标 / 追踪 / SLO / 告警
 │   ├── SKILL.md
 │   └── examples.md
@@ -76,6 +82,9 @@ harness-skills/
 │       ├── pre-commit-config.yaml
 │       └── github-actions-ci.yml
 ├── refactoring/          # 安全、小步、行为不变的重构
+│   ├── SKILL.md
+│   └── examples.md
+├── release/              # 版本、发版、灰度与回滚
 │   ├── SKILL.md
 │   └── examples.md
 ├── runtime-reliability/  # 服务/Worker 运行时可靠性
@@ -118,21 +127,24 @@ skill-name/
 |-------|-------------|
 | [`api-design`](api-design/) | Design and review APIs, including REST/HTTP, RPC, CLI-facing contracts, request/response schemas, error semantics, pagination, idempotency, versioning, compatibility, and OpenAPI/docs sync. Use when creating or changing endpoints, public interfaces, SDK contracts, webhooks, or when the user mentions API design / REST / OpenAPI / 接口设计. |
 | [`ci-quality`](ci-quality/) | Design and review CI quality gates, local hooks, and repository checks for software projects. Use when setting up GitHub Actions/GitLab CI, pre-commit, format/lint/test/type-check workflows, dependency audits, coverage gates, or when the user mentions CI / pre-commit / quality gates / 持续集成. |
-| [`clean-code`](clean-code/) | Apply language-agnostic clean code rules for readable, maintainable software. Use when writing, refactoring, or reviewing code of any language; when the user mentions clean code, readability, code quality, naming, or structure. Language-specific idioms defer to rust-style, cpp-style, python-style, or other *-style skills. |
+| [`clean-code`](clean-code/) | Apply language-agnostic clean code rules for readable, maintainable software. Use when writing, refactoring, or reviewing code of any language; when the user mentions clean code, readability, code quality, naming, structure, concurrency, or shared mutable state. Language-specific idioms defer to rust-style, cpp-style, python-style, or other *-style skills. |
 | [`code-review`](code-review/) | Review code changes for correctness, regressions, maintainability, security, and test gaps. Use when reviewing pull requests, diffs, local changes, or when the user asks for code review / review / 审查 / 看看改动. Style-specific checks defer to clean-code and language *-style skills. |
 | [`commit-message`](commit-message/) | Generate and review clear Conventional Commit messages from git diffs, staged changes, or change descriptions. Use when writing commits, reviewing commit history, choosing feat/fix/refactor/chore/test/docs types, or when the user mentions commit message / 提交信息 / 写提交. |
 | [`cpp-style`](cpp-style/) | Apply modern C++ coding standards (C++17/20 idioms, RAII, safety, clarity). Use when writing, refactoring, or reviewing C++ code, CMake/Bazel C++ targets, or when the user mentions C++ style / guidelines / Modern C++ / CMake / clang-format / clang-tidy. General readability rules defer to clean-code; this skill owns C++-specific rules. |
+| [`data-modeling`](data-modeling/) | Design and review domain data models, invariants, boundaries, identity keys, consistency expectations, and persistence mapping. Use when defining entities, aggregates, schemas, idempotency keys, state transitions, or when the user mentions data modeling / domain model / invariant / aggregate / 数据模型 / 不变量 / 一致性. HTTP/API shapes defer to api-design; migration mechanics defer to migration. |
 | [`debugging`](debugging/) | Debug software failures systematically by reproducing, gathering evidence, narrowing hypotheses, and verifying fixes. Use when investigating bugs, failing tests, crashes, performance anomalies, flaky behavior, or when the user mentions debug / debugging / 排查 / 报错 / 失败. |
 | [`dependency-management`](dependency-management/) | Choose, pin, audit, upgrade, and remove software dependencies with supply-chain awareness. Use when adding libraries, updating lockfiles, reviewing dependency diffs, evaluating licenses/advisories, or when the user mentions dependencies / lockfile / supply chain / cargo deny / npm audit / 依赖 / 升级依赖. Security review of app code defers to secure-coding; CI wiring defers to ci-quality. |
 | [`development-workflow`](development-workflow/) | Route common software development tasks to the right combination of skills and execution order. Use when the user asks to develop, implement, refactor, fix bugs, review code, set up a project, write tests, prepare commits/PRs, or when the user mentions development workflow / 开发流程 / 按流程来. |
-| [`docs-style`](docs-style/) | Write and review project documentation such as README, architecture docs, ADRs, CHANGELOG, AGENTS.md, SECURITY.md, API docs, and migration notes. Use when creating or updating docs, documenting code/API changes, writing release notes, or when the user mentions documentation / docs / README / ADR / CHANGELOG / 文档. |
+| [`docs-style`](docs-style/) | Write and review project documentation such as README, architecture docs, ADRs, CHANGELOG, AGENTS.md, SECURITY.md, API docs, and migration notes. Use when creating or updating docs, documenting code/API changes, writing release notes, recording architecture decisions, or when the user mentions documentation / docs / README / ADR / architecture decision / CHANGELOG / 文档 / 技术决策. |
 | [`github-flow`](github-flow/) | Follow GitHub Flow for branching, commits, PRs, review, and merge. Use when creating branches, opening or updating pull requests, handling review comments, merging, resolving conflicts, or when the user mentions GitHub Flow / PR / MR / 开 PR / 提 PR / 合并分支 / 分支流程. |
+| [`migration`](migration/) | Plan and execute safe schema, data, API, and config migrations with expand/contract steps, compatibility windows, rollback, and verification. Use when changing databases, message formats, public APIs, feature cutovers, or when the user mentions migration / expand-contract / backfill / 迁移 / 兼容窗口 / 回滚迁移. API contract details defer to api-design; release cutover defers to release. |
 | [`observability`](observability/) | Design and review observability for applications and services: structured logs, metrics, traces, correlation IDs, SLIs/SLOs, and actionable alerts. Use when adding logging/metrics/tracing, debugging production with telemetry, defining dashboards/alerts, or when the user mentions observability / OpenTelemetry / metrics / tracing / SLO / 可观测 / 监控告警. Runtime failure modes defer to runtime-reliability; secret redaction defers to secure-coding. |
 | [`performance`](performance/) | Improve and review software performance with measurement-first discipline: define budgets, benchmark, profile, fix hotspots, and guard against regressions. Use when optimizing latency/throughput/memory/CPU, investigating slowness, adding benchmarks, or when the user mentions performance / profiling / benchmark / 性能 / 优化 / 变慢. Correctness and reliability defer to testing, debugging, and runtime-reliability. |
 | [`project-bootstrap`](project-bootstrap/) | Bootstrap new software projects with sensible modern defaults for tooling, layout, documentation, quality checks, tests, CI, and agent-facing docs. Use when creating a new project, initializing Python/Rust/C++ repositories, setting up pyproject/Cargo/CMake, AGENTS.md, LICENSE, SECURITY.md, or when the user mentions project bootstrap / 初始化项目 / 新项目脚手架. Language-specific conventions defer to python-style, rust-style, cpp-style, testing, secure-coding, and github-flow. |
 | [`python-style`](python-style/) | Apply idiomatic modern Python coding standards with strong preference for uv, ruff, type hints, and pytest. Use when writing, refactoring, or reviewing Python code, or when the user mentions Python style / PEP 8 / type hints / pytest / uv / ruff. General readability rules defer to clean-code; this skill owns Python-specific rules. |
 | [`refactoring`](refactoring/) | Perform safe, behavior-preserving refactors in small verified steps with characterization tests, clear seams, and minimal blast radius. Use when restructuring code, reducing complexity, extracting modules, renaming across boundaries, paying down tech debt, or when the user mentions refactor / refactoring / 重构 / 整理代码 / strangler. Style rules defer to clean-code and language *-style skills; bug fixes that change behavior are not pure refactors. |
-| [`runtime-reliability`](runtime-reliability/) | Design and review runtime reliability for long-running services, workers, CLIs, daemons, and networked systems. Use when implementing health checks, graceful shutdown, timeouts, retries, backoff, idempotency, queues, resource limits, observability, or when the user mentions reliability / runtime / health check / retry / timeout / worker / 稳定性. |
+| [`release`](release/) | Plan software releases with versioning, changelog cutover, tags, rollout, verification, and rollback. Use when cutting a version, publishing GitHub Releases, doing canary/staged rollouts, writing release notes, or when the user mentions release / versioning / tag / rollback / canary / 发版 / 回滚 / 发布。 Migration expand/contract details defer to migration; CI gates defer to ci-quality. |
+| [`runtime-reliability`](runtime-reliability/) | Design and review runtime reliability for long-running services, workers, CLIs, daemons, and networked systems. Use when implementing health checks, graceful shutdown, timeouts, retries, backoff, idempotency, queues, resource limits, feature flags/gradual rollout switches, observability baselines, or when the user mentions reliability / runtime / health check / retry / timeout / worker / feature flag / 特性开关 / 稳定性. Detailed telemetry design defers to observability. |
 | [`rust-style`](rust-style/) | Apply Rust idioms and coding standards for idiomatic, safe, maintainable code. Use when writing, refactoring, or reviewing Rust code, Cargo projects, or when the user mentions Rust style / idioms / clippy / rustfmt / nextest / cargo deny. General readability rules defer to clean-code; this skill owns Rust-specific rules. |
 | [`secure-coding`](secure-coding/) | Apply practical secure coding checks for application code, scripts, APIs, services, and automation. Use when writing or reviewing code that handles user input, authentication, authorization, secrets, files, shell commands, SQL/queries, network calls, logs, dependencies, or when the user mentions security / secure coding / 安全 / 漏洞 / 密钥. |
 | [`testing`](testing/) | Design and improve tests for software changes, focusing on behavior, edge cases, regressions, and maintainable test structure. Use when writing tests, improving coverage, fixing flaky tests, or when the user mentions testing / test plan / pytest / cargo test / unit tests. Language-specific test tools defer to python-style, rust-style, cpp-style, etc. |
@@ -147,11 +159,14 @@ skill-name/
 | 写 Python | `clean-code` + `python-style` + `testing` + `secure-coding` |
 | 写 Rust | `clean-code` + `rust-style` + `testing` + `secure-coding` |
 | 写 C++ | `clean-code` + `cpp-style` + `testing` |
-| 设计/修改 API | `api-design` + `secure-coding` + `testing` + `docs-style` |
+| 设计/修改 API | `api-design` + `data-modeling` + `secure-coding` + `testing` + `docs-style` |
 | 服务 / Worker | `runtime-reliability` + `observability` + `secure-coding` + `testing` + `ci-quality` |
 | 性能优化 | `performance` + `observability` + `testing` |
 | 重构 | `refactoring` + `testing` + `clean-code` + 对应语言 `*-style` |
 | 依赖变更 | `dependency-management` + `secure-coding` + `ci-quality` |
+| 数据模型 | `data-modeling` + `clean-code` + `testing` |
+| 迁移 | `migration` + `data-modeling` + `testing` + `docs-style` |
+| 发版 / 回滚 | `release` + `ci-quality` + `docs-style` |
 | 审 PR / diff | `code-review` + `clean-code` + `testing` + `secure-coding` + `ci-quality` |
 | 排查 bug | `debugging` + `testing` |
 | 提 PR | `github-flow` + `commit-message` + `ci-quality` |
@@ -163,6 +178,9 @@ skill-name/
 
 - 「按 `code-review` 审查这次改动」
 - 「按 `api-design` 设计这个接口」
+- 「按 `data-modeling` 梳理不变量和边界」
+- 「按 `migration` 做这次 schema 迁移」
+- 「按 `release` 切 v0.1.0 并发版」
 - 「按 `python-style` 写这个模块」
 - 「按 `debugging` 帮我排查这个失败」
 - 「按 `performance` 优化这条慢路径」

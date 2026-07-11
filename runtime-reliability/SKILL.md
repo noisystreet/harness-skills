@@ -4,8 +4,10 @@ description: >-
   Design and review runtime reliability for long-running services, workers,
   CLIs, daemons, and networked systems. Use when implementing health checks,
   graceful shutdown, timeouts, retries, backoff, idempotency, queues, resource
-  limits, observability, or when the user mentions reliability / runtime /
-  health check / retry / timeout / worker / 稳定性.
+  limits, feature flags/gradual rollout switches, observability baselines, or
+  when the user mentions reliability / runtime / health check / retry /
+  timeout / worker / feature flag / 特性开关 / 稳定性.
+  Detailed telemetry design defers to observability.
 ---
 
 # Runtime Reliability
@@ -95,6 +97,18 @@ description: >-
 3. poison message 不应阻塞整个队列
 4. 部署多个 worker 时考虑并发锁和重复执行
 
+## 特性开关
+
+用于灰度、紧急关闭与实验，不替代正确的迁移/发布流程。
+
+1. 开关默认安全：失败时偏向关闭新路径或保持旧行为
+2. 每个开关写清：控制范围、默认值、负责人、清理截止日期
+3. 开关判断集中，避免散落魔法字符串；配置来源可审计
+4. 评估顺序稳定：环境杀开关 > 租户/用户定向 > 百分比灰度
+5. 观测：按开关状态打点/日志字段，便于对比与回滚
+6. 长期开关视为技术债；上线完成后按期删除旧路径
+7. 需要数据兼容时，先 `migration` expand，再靠开关切流，最后 contract
+
 ## 测试建议
 
 - 关闭信号：确认停止接新任务并释放资源
@@ -102,6 +116,7 @@ description: >-
 - 重试：临时错误重试，永久错误不重试
 - 幂等：重复消息/请求只产生一次业务效果
 - 背压：队列满或并发满时行为明确
+- 开关：开/关/灰度比例下的关键路径与回退
 
 ## 禁止
 
@@ -110,3 +125,4 @@ description: >-
 - 靠 `sleep` 处理竞态
 - readiness/liveness 语义混淆
 - 无界队列、无界缓存、无界任务
+- 永久特性开关却从不删除旧实现

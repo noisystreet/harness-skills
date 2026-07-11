@@ -72,6 +72,13 @@ uv run pyright
 3. 禁止 `except: pass`；`contextlib.suppress` 仅用于明确可忽略的窄异常
 4. 库代码少在深层 `print`；用 `logging`，由应用配置 handler
 
+## 并发
+
+1. 共享可变对象跨线程前明确锁或改用队列；CPython GIL 不是正确性许可证
+2. `asyncio` 任务要有人 await/cancel；不要创建无主 fire-and-forget 任务却忽略异常
+3. 线程池/进程池有界；提交时处理拒绝与取消
+4. 禁止用裸 `time.sleep` 等待外部条件来「修复」竞态
+
 ## 模块与结构
 
 1. 模块按职责拆分；避免巨型「god module」与无边界的 `utils.py`

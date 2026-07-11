@@ -17,15 +17,18 @@ description: >-
 |------|------|
 | 新项目初始化 | `project-bootstrap` → 对应语言 `*-style` → `testing` → `secure-coding` → `dependency-management` → `ci-quality` |
 | 写新功能 | `clean-code` → 对应语言 `*-style` → `testing` → `secure-coding` |
-| 设计/修改 API | `api-design` → `secure-coding` → `testing` → `docs-style` |
+| 设计/修改 API | `api-design` → `data-modeling` → `secure-coding` → `testing` → `docs-style` |
 | 长期运行服务/Worker | `runtime-reliability` → `observability` → `secure-coding` → `testing` → `ci-quality` |
 | 修 bug | `debugging` → `testing` → `clean-code` → 对应语言 `*-style` |
 | 性能问题 / 优化 | `performance` → `observability` → `testing` → `debugging` |
 | 重构 | `refactoring` → `testing` → `clean-code` → 对应语言 `*-style` |
 | 依赖新增/升级 | `dependency-management` → `secure-coding` → `ci-quality` → `testing` |
+| 数据模型 / 不变量 | `data-modeling` → `clean-code` → `testing` → `api-design`（若对外） |
+| Schema/API/数据迁移 | `migration` → `data-modeling` → `runtime-reliability` → `testing` → `docs-style` |
+| 发版 / 回滚 | `release` → `ci-quality` → `docs-style` → `migration`（若有） |
 | 审 PR / diff | `code-review` → `testing` → `secure-coding` → `ci-quality` |
 | 配 CI / 质量门禁 | `ci-quality` → `testing` → `secure-coding` → `dependency-management` |
-| 写/改文档 | `docs-style` → `project-bootstrap`（新项目） |
+| 写/改文档 / ADR | `docs-style` → `project-bootstrap`（新项目） |
 | 提交 / 开 PR | `commit-message` → `github-flow` |
 
 ## 执行原则
@@ -40,9 +43,12 @@ description: >-
 8. 涉及变慢、吞吐、内存/CPU、基准或剖析时加入 `performance`
 9. 涉及新增/升级/审计/移除依赖或锁文件时加入 `dependency-management`
 10. 涉及结构调整且声称行为不变时加入 `refactoring`（不要只靠 `clean-code`）
-11. 有行为变化时加入 `testing`
-12. 涉及 README、架构、ADR、CHANGELOG、AGENTS 或迁移说明时加入 `docs-style`
-13. 涉及协作、提交、PR 时加入 `commit-message` 和 `github-flow`
+11. 涉及实体/不变量/一致性边界/幂等键时加入 `data-modeling`
+12. 涉及 schema/数据/API 格式迁移或 expand-contract 时加入 `migration`
+13. 涉及版本号、tag、发版说明、灰度或回滚清单时加入 `release`
+14. 有行为变化时加入 `testing`
+15. 涉及 README、架构、ADR、CHANGELOG、AGENTS 或迁移说明时加入 `docs-style`
+16. 涉及协作、提交、PR 时加入 `commit-message` 和 `github-flow`
 
 ## 常见流程
 
@@ -85,6 +91,13 @@ description: >-
 1. 用 `performance` 定义预算、测量并定位热点
 2. 用 `observability` 确认生产信号能支持定位
 3. 改动后用同一方法复测，并用 `testing` 防行为回归
+
+### 迁移与发版
+
+1. 用 `migration` 规划 expand/contract、兼容窗口与回滚
+2. 用 `data-modeling` 确认不变量与键在迁移期仍成立
+3. 用 `release` 切版本、写说明、灰度观察与回滚决策
+4. 需要切流时用 `runtime-reliability` 的特性开关规则
 
 ### 审查改动
 

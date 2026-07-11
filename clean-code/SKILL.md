@@ -3,7 +3,8 @@ name: clean-code
 description: >-
   Apply language-agnostic clean code rules for readable, maintainable software.
   Use when writing, refactoring, or reviewing code of any language; when the user
-  mentions clean code, readability, code quality, naming, or structure.
+  mentions clean code, readability, code quality, naming, structure, concurrency,
+  or shared mutable state.
   Language-specific idioms defer to rust-style, cpp-style, python-style, or other *-style skills.
 ---
 
@@ -43,6 +44,17 @@ description: >-
 4. 可变状态范围尽量小；谁拥有、谁修改写清楚
 5. 需要状态机时用显式状态类型（枚举/代数类型），禁止一堆布尔组合伪装状态
 6. 函数要么查询要么命令，避免「改状态又返回复杂结果」的隐式耦合（合理的 fluent API 除外）
+
+## 并发与共享状态
+
+跨语言通用约束；语言细节见对应 `*-style`。
+
+1. **共享可变状态默认有罪**：谁拥有、谁可写、同步原语是什么，必须写清
+2. 优先限制可变范围：消息传递、不可变快照、单所有者，再才是锁
+3. 锁顺序全局一致，避免死锁；临界区只做必要工作
+4. 取消/超时要能传播到子任务与 IO，不留下无主后台工作
+5. 禁止「先 sleep 再看看」修复竞态；用条件变量、通道、接合点或确定性调度
+6. 并发测试关注：重复执行、交错、取消、超时，而不是只跑通一次快乐路径
 
 ## 注释与文档
 
@@ -102,7 +114,7 @@ count = registry.count()       # 纯查询无副作用
 按严重度提，不空谈风格：
 
 1. 错误被吞、资源/生命周期不清、行为与命名不符
-2. 隐式/散落可变状态、布尔旗标丛生伪装状态机
+2. 隐式/散落可变状态、布尔旗标丛生伪装状态机、共享可变状态无同步约定
 3. 过长函数、过深嵌套、无意义命名、无故重复、误导性注释
 
 ## 禁止
@@ -110,3 +122,4 @@ count = registry.count()       # 纯查询无副作用
 - 为「看起来干净」做无行为变化的大规模重命名/搬文件（除非用户要求重构）
 - 引入与项目既有风格冲突的新风格（同一 PR 内保持一致）
 - 用空泛原则替代具体修改建议
+- 用 sleep/重试掩盖数据竞争或生命周期错误

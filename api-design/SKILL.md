@@ -11,6 +11,7 @@ description: >-
 # API Design
 
 API 是长期契约。优先保持清晰、可演进、可测试、可文档化。
+领域不变量与一致性边界 → `data-modeling`；schema/格式迁移步骤 → `migration`。
 
 更多接口设计样例见 [examples.md](examples.md)。
 

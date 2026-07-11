@@ -1,8 +1,12 @@
 SKILLS_DIR ?= $(if $(CURSOR_SKILLS_DIR),$(CURSOR_SKILLS_DIR),$(HOME)/.cursor/skills)
+TRAE_SKILLS_DIR ?= $(HOME)/.trae/skills
+TRAE_CN_SKILLS_DIR ?= $(HOME)/.trae-cn/skills
 SKILLS := $(patsubst %/SKILL.md,%,$(wildcard */SKILL.md))
 
 .DEFAULT_GOAL := list
 .PHONY: install uninstall list catalog check
+.PHONY: install-trae uninstall-trae list-trae
+.PHONY: install-trae-cn uninstall-trae-cn list-trae-cn
 
 install:
 	@mkdir -p "$(SKILLS_DIR)"
@@ -42,6 +46,24 @@ list:
 		fi; \
 		printf "%-22s %-9s %s\n" "$$skill" "$$linked" "$$target"; \
 	done
+
+install-trae:
+	@$(MAKE) --no-print-directory install SKILLS_DIR="$(TRAE_SKILLS_DIR)"
+
+uninstall-trae:
+	@$(MAKE) --no-print-directory uninstall SKILLS_DIR="$(TRAE_SKILLS_DIR)"
+
+list-trae:
+	@$(MAKE) --no-print-directory list SKILLS_DIR="$(TRAE_SKILLS_DIR)"
+
+install-trae-cn:
+	@$(MAKE) --no-print-directory install SKILLS_DIR="$(TRAE_CN_SKILLS_DIR)"
+
+uninstall-trae-cn:
+	@$(MAKE) --no-print-directory uninstall SKILLS_DIR="$(TRAE_CN_SKILLS_DIR)"
+
+list-trae-cn:
+	@$(MAKE) --no-print-directory list SKILLS_DIR="$(TRAE_CN_SKILLS_DIR)"
 
 catalog:
 	@python3 tools/catalog_skills.py --write

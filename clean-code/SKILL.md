@@ -11,6 +11,7 @@ description: >-
 
 跨语言的可读性与可维护性约束。
 **语言惯用法、工具链、所有权等** → 见 `rust-style` / `cpp-style` / `python-style`（及其他 `*-style`）。本 skill 不覆盖语言特例。
+优秀项目特征、教材和设计参考 → 见 [reference.md](reference.md)。
 
 ## 命名
 

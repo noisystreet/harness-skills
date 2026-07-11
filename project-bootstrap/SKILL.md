@@ -35,6 +35,7 @@ description: >-
 - `AGENTS.md`：给 Agent 的项目身份、硬约束、验证命令和禁止事项
 - `.env.example` + `.gitignore`：列出配置项，确保 `.env` 不入库
 - `.editorconfig`：统一缩进、换行符和 UTF-8
+- `.pre-commit-config.yaml`：提交前运行快速格式化、lint、密钥扫描和 commit-msg 检查（强烈推荐）
 
 可直接参考模板：
 
@@ -141,7 +142,7 @@ just check
 3. 单元测试
 4. 依赖/安全检查（项目面向生产或外部输入时）
 
-详细 CI/pre-commit 规则见 `ci-quality`。
+本地强烈推荐配置 pre-commit，并与 CI 使用同一套检查入口。详细规则见 `ci-quality`。
 
 ## Agent 入口文档
 

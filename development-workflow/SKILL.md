@@ -16,6 +16,7 @@ description: >-
 | 任务 | 组合 |
 |------|------|
 | 新项目初始化 | `project-bootstrap` → 对应语言 `*-style` → `testing` → `secure-coding` → `dependency-management` → `ci-quality` |
+| 理解陌生代码库 / 源码分析 | `codebase-analysis` → `docs-style`（若补文档） → `testing`（若补表征测试） |
 | 写新功能 | `clean-code` → 对应语言 `*-style` → `testing` → `secure-coding` |
 | 设计/修改 API | `api-design` → `data-modeling` → `secure-coding` → `testing` → `docs-style` |
 | 长期运行服务/Worker | `runtime-reliability` → `observability` → `secure-coding` → `testing` → `ci-quality` |
@@ -36,19 +37,20 @@ description: >-
 1. 先识别任务类型、语言、仓库阶段（新项目 / 既有项目 / PR 中）
 2. 选择最小必要 skill 组合；不要为简单问题加载全部规则
 3. 语言规则只从对应 `*-style` 取；跨语言规则从 `clean-code` 取
-4. 有安全、外部输入、权限、密钥、网络、文件或 shell 调用时加入 `secure-coding`
-5. 涉及接口、SDK、CLI 参数、webhook、错误语义、分页或版本兼容时加入 `api-design`
-6. 涉及长期运行服务、worker、队列、健康检查、超时、重试或资源上限时加入 `runtime-reliability`
-7. 涉及日志/指标/追踪、SLO、告警或排障关联 id 时加入 `observability`
-8. 涉及变慢、吞吐、内存/CPU、基准或剖析时加入 `performance`
-9. 涉及新增/升级/审计/移除依赖或锁文件时加入 `dependency-management`
-10. 涉及结构调整且声称行为不变时加入 `refactoring`（不要只靠 `clean-code`）
-11. 涉及实体/不变量/一致性边界/幂等键时加入 `data-modeling`
-12. 涉及 schema/数据/API 格式迁移或 expand-contract 时加入 `migration`
-13. 涉及版本号、tag、发版说明、灰度或回滚清单时加入 `release`
-14. 有行为变化时加入 `testing`
-15. 涉及 README、架构、ADR、CHANGELOG、AGENTS 或迁移说明时加入 `docs-style`
-16. 涉及协作、提交、PR 时加入 `commit-message` 和 `github-flow`
+4. 需要理解陌生仓库/库源码、画模块图或主路径时加入 `codebase-analysis`
+5. 有安全、外部输入、权限、密钥、网络、文件或 shell 调用时加入 `secure-coding`
+6. 涉及接口、SDK、CLI 参数、webhook、错误语义、分页或版本兼容时加入 `api-design`
+7. 涉及长期运行服务、worker、队列、健康检查、超时、重试或资源上限时加入 `runtime-reliability`
+8. 涉及日志/指标/追踪、SLO、告警或排障关联 id 时加入 `observability`
+9. 涉及变慢、吞吐、内存/CPU、基准或剖析时加入 `performance`
+10. 涉及新增/升级/审计/移除依赖或锁文件时加入 `dependency-management`
+11. 涉及结构调整且声称行为不变时加入 `refactoring`（不要只靠 `clean-code`）
+12. 涉及实体/不变量/一致性边界/幂等键时加入 `data-modeling`
+13. 涉及 schema/数据/API 格式迁移或 expand-contract 时加入 `migration`
+14. 涉及版本号、tag、发版说明、灰度或回滚清单时加入 `release`
+15. 有行为变化时加入 `testing`
+16. 涉及 README、架构、ADR、CHANGELOG、AGENTS 或迁移说明时加入 `docs-style`
+17. 涉及协作、提交、PR 时加入 `commit-message` 和 `github-flow`
 
 ## 常见流程
 
@@ -60,6 +62,12 @@ description: >-
 4. 用 `secure-coding` 建立 `.env.example`、安全上报和输入边界
 5. 用 `docs-style` 生成/维护 README、架构文档、ADR、CHANGELOG 和 AGENTS
 6. 用 `ci-quality` 配置 format/lint/test/security 门禁
+
+### 理解陌生代码
+
+1. 用 `codebase-analysis` 找入口、主路径、边界与不确定点
+2. 需要沉淀时用 `docs-style` 写架构简报或 ADR
+3. 行为含糊时用 `testing` 补表征测试再继续改
 
 ### 实现功能
 

@@ -9,6 +9,7 @@ and this project uses semantic versioning when releases are created.
 
 ### Added
 
+- Added Makefile targets for Trae global skill install: `install-trae`, `install-trae-cn`, and matching list/uninstall commands.
 - Added reference guides for `clean-code`, `rust-style`, `cpp-style`, and `python-style`.
 - Added `make catalog` to regenerate the README skills catalog from `SKILL.md` metadata.
 - Added repository `.pre-commit-config.yaml` with generic file checks, private key detection, and `make check`.

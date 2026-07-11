@@ -22,7 +22,7 @@ harness-skills/
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
-├── Makefile              # 安装 / 卸载 / 查看 / 校验 skill
+├── Makefile              # 安装 / 卸载 / 查看 / 校验 skill（含 Trae）
 ├── api-design/           # API 契约、错误语义、分页、兼容性
 │   ├── SKILL.md
 │   └── examples.md
@@ -176,10 +176,17 @@ cp -r github-flow /path/to/your-project/.ai/skills/
 
 ### 个人全局 Skills
 
-默认 `make install` 会把 skill 链接到 Cursor 兼容目录 `~/.cursor/skills/`。这只是一个默认安装目标；其他工具可通过 `SKILLS_DIR` 指定目标目录：
+默认 `make install` 会把 skill 链接到 Cursor 兼容目录 `~/.cursor/skills/`。Trae 有专用目标；其他工具可通过 `SKILLS_DIR` 指定目标目录：
 
 ```bash
+# Cursor（默认）
 make install
+
+# Trae 国际版：~/.trae/skills/
+make install-trae
+
+# Trae 国区：~/.trae-cn/skills/
+make install-trae-cn
 
 # 安装到自定义 skills 目录
 make install SKILLS_DIR=/path/to/your-ai-tool/skills
@@ -189,6 +196,8 @@ make install SKILLS_DIR=/path/to/your-ai-tool/skills
 
 ```bash
 make list
+make list-trae
+make list-trae-cn
 ```
 
 校验 skill 元数据与 README：
@@ -201,12 +210,15 @@ make check
 
 ```bash
 make uninstall
+make uninstall-trae
+make uninstall-trae-cn
 
 # 卸载自定义目标目录中的链接
 make uninstall SKILLS_DIR=/path/to/your-ai-tool/skills
 ```
 
 > 如果使用 Cursor，不要放到 `~/.cursor/skills-cursor/`，那是 Cursor 内置 skill 目录。
+> Trae 项目级 skills 目录是 `.trae/skills/`；上面的 `install-trae*` 安装的是个人全局 skills。
 
 ### 其他 AI 编程工具示例
 

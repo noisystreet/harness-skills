@@ -1,7 +1,7 @@
 # Harness Skills
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-24-brightgreen.svg)](README.md)
+[![Skills](https://img.shields.io/badge/skills-25-brightgreen.svg)](README.md)
 [![CI](https://github.com/noisystreet/harness-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/noisystreet/harness-skills/actions/workflows/ci.yml)
 [![AI Agents](https://img.shields.io/badge/AI%20Agents-Harness%20Skills-purple.svg)](README.md)
 [![GitHub repo](https://img.shields.io/badge/GitHub-noisystreet%2Fharness--skills-black.svg)](https://github.com/noisystreet/harness-skills)
@@ -96,6 +96,10 @@ harness-skills/
 ├── secure-coding/        # 通用安全编码基线
 │   ├── SKILL.md
 │   └── examples.md
+├── software-architecture/ # 质量属性、边界、依赖与架构风格
+│   ├── SKILL.md
+│   ├── examples.md
+│   └── reference.md
 ├── rust-style/           # Rust 编程规范
 │   ├── SKILL.md
 │   └── reference.md
@@ -130,7 +134,7 @@ skill-name/
 |-------|-------------|
 | [`api-design`](api-design/) | Design and review APIs, including REST/HTTP, RPC, CLI-facing contracts, request/response schemas, error semantics, pagination, idempotency, versioning, compatibility, and OpenAPI/docs sync. Use when creating or changing endpoints, public interfaces, SDK contracts, webhooks, or when the user mentions API design / REST / OpenAPI / 接口设计. |
 | [`ci-quality`](ci-quality/) | Design and review CI quality gates, local hooks, and repository checks for software projects. Use when setting up GitHub Actions/GitLab CI, pre-commit, format/lint/test/type-check workflows, dependency audits, coverage gates, or when the user mentions CI / pre-commit / quality gates / 持续集成. |
-| [`clean-code`](clean-code/) | Apply language-agnostic clean code rules for readable, maintainable software. Use when writing, refactoring, or reviewing code of any language; when the user mentions clean code, readability, code quality, naming, structure, concurrency, or shared mutable state. Language-specific idioms defer to rust-style, cpp-style, python-style, or other *-style skills. |
+| [`clean-code`](clean-code/) | Apply language-agnostic clean code rules for readable, maintainable software. Use when writing, refactoring, or reviewing code of any language; when the user mentions clean code, readability, code quality, naming, structure, concurrency, shared mutable state, or design patterns. Language-specific idioms defer to rust-style, cpp-style, python-style, or other *-style skills. System boundaries and architecture styles defer to software-architecture. |
 | [`code-review`](code-review/) | Review code changes for correctness, regressions, maintainability, security, and test gaps. Use when reviewing pull requests, diffs, local changes, or when the user asks for code review / review / 审查 / 看看改动. Style-specific checks defer to clean-code and language *-style skills. |
 | [`codebase-analysis`](codebase-analysis/) | Analyze unfamiliar source codebases to build a reliable mental model: find entrypoints, map module boundaries and data flow, identify invariants and extension points, and produce a structured briefing. Use when onboarding to a repo, reading third-party library source, mapping architecture, or when the user mentions codebase analysis / source analysis / read the code / 源码分析 / 读代码 / 摸清项目 / 模块关系. Bug investigation defers to debugging; PR critique defers to code-review; restructuring defers to refactoring. |
 | [`commit-message`](commit-message/) | Generate and review clear Conventional Commit messages from git diffs, staged changes, or change descriptions. Use when writing commits, reviewing commit history, choosing feat/fix/refactor/chore/test/docs types, or when the user mentions commit message / 提交信息 / 写提交. |
@@ -151,6 +155,7 @@ skill-name/
 | [`runtime-reliability`](runtime-reliability/) | Design and review runtime reliability for long-running services, workers, CLIs, daemons, and networked systems. Use when implementing health checks, graceful shutdown, timeouts, retries, backoff, idempotency, queues, resource limits, feature flags/gradual rollout switches, observability baselines, or when the user mentions reliability / runtime / health check / retry / timeout / worker / feature flag / 特性开关 / 稳定性. Detailed telemetry design defers to observability. |
 | [`rust-style`](rust-style/) | Apply Rust idioms and coding standards for idiomatic, safe, maintainable code. Use when writing, refactoring, or reviewing Rust code, Cargo projects, or when the user mentions Rust style / idioms / clippy / rustfmt / nextest / cargo deny. General readability rules defer to clean-code; this skill owns Rust-specific rules. |
 | [`secure-coding`](secure-coding/) | Apply practical secure coding checks for application code, scripts, APIs, services, and automation. Use when writing or reviewing code that handles user input, authentication, authorization, secrets, files, shell commands, SQL/queries, network calls, logs, dependencies, or when the user mentions security / secure coding / 安全 / 漏洞 / 密钥. |
+| [`software-architecture`](software-architecture/) | Design and review software architecture: quality attributes, module boundaries, dependency rules, and architecture style trade-offs. Use when choosing layering, hexagonal/clean architecture, modular monoliths, event- driven split, or when the user mentions software architecture / system design / module boundaries / 软件架构 / 分层 / 六边形 / 架构风格. ADR writing defers to docs-style; domain aggregates defer to data-modeling; safe structural change defers to refactoring; GoF tactics defer to clean-code. |
 | [`testing`](testing/) | Design and improve tests for software changes, focusing on behavior, edge cases, regressions, and maintainable test structure. Use when writing tests, improving coverage, fixing flaky tests, or when the user mentions testing / test plan / pytest / cargo test / unit tests. Language-specific test tools defer to python-style, rust-style, cpp-style, etc. |
 <!-- END SKILLS CATALOG -->
 
@@ -174,6 +179,7 @@ skill-name/
 | 审 PR / diff | `code-review` + `clean-code` + `testing` + `secure-coding` + `ci-quality` |
 | 排查 bug | `debugging` + `testing` |
 | 理解陌生代码 / 源码分析 | `codebase-analysis` + `docs-style` |
+| 软件架构 / 模块边界 | `software-architecture` + `data-modeling` + `docs-style` |
 | 提 PR | `github-flow` + `commit-message` + `ci-quality` |
 | 写/改文档 | `docs-style` |
 | 新项目初始化 | `project-bootstrap` + `docs-style` + `ci-quality` + 对应语言 `*-style` |
@@ -189,6 +195,7 @@ skill-name/
 - 「按 `python-style` 写这个模块」
 - 「按 `debugging` 帮我排查这个失败」
 - 「按 `codebase-analysis` 分析这个仓库/库的源码」
+- 「按 `software-architecture` 评估模块边界和架构风格」
 - 「按 `performance` 优化这条慢路径」
 - 「按 `refactoring` 安全重构这个模块」
 - 「按 `observability` 补齐日志和指标」

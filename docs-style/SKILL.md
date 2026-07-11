@@ -49,6 +49,7 @@ README 应回答：
 - 开放决策
 
 重大设计变化用 ADR 记录，不把历史决策埋在 PR 评论里。
+系统边界、依赖规则与架构风格取舍 → `software-architecture`。
 
 ## ADR
 

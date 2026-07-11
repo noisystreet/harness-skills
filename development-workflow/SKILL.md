@@ -17,6 +17,7 @@ description: >-
 |------|------|
 | 新项目初始化 | `project-bootstrap` → 对应语言 `*-style` → `testing` → `secure-coding` → `dependency-management` → `ci-quality` |
 | 理解陌生代码库 / 源码分析 | `codebase-analysis` → `docs-style`（若补文档） → `testing`（若补表征测试） |
+| 软件架构 / 模块边界 | `software-architecture` → `data-modeling` → `docs-style`（ADR） |
 | 写新功能 | `clean-code` → 对应语言 `*-style` → `testing` → `secure-coding` |
 | 设计/修改 API | `api-design` → `data-modeling` → `secure-coding` → `testing` → `docs-style` |
 | 长期运行服务/Worker | `runtime-reliability` → `observability` → `secure-coding` → `testing` → `ci-quality` |
@@ -38,19 +39,20 @@ description: >-
 2. 选择最小必要 skill 组合；不要为简单问题加载全部规则
 3. 语言规则只从对应 `*-style` 取；跨语言规则从 `clean-code` 取
 4. 需要理解陌生仓库/库源码、画模块图或主路径时加入 `codebase-analysis`
-5. 有安全、外部输入、权限、密钥、网络、文件或 shell 调用时加入 `secure-coding`
-6. 涉及接口、SDK、CLI 参数、webhook、错误语义、分页或版本兼容时加入 `api-design`
-7. 涉及长期运行服务、worker、队列、健康检查、超时、重试或资源上限时加入 `runtime-reliability`
-8. 涉及日志/指标/追踪、SLO、告警或排障关联 id 时加入 `observability`
-9. 涉及变慢、吞吐、内存/CPU、基准或剖析时加入 `performance`
-10. 涉及新增/升级/审计/移除依赖或锁文件时加入 `dependency-management`
-11. 涉及结构调整且声称行为不变时加入 `refactoring`（不要只靠 `clean-code`）
-12. 涉及实体/不变量/一致性边界/幂等键时加入 `data-modeling`
-13. 涉及 schema/数据/API 格式迁移或 expand-contract 时加入 `migration`
-14. 涉及版本号、tag、发版说明、灰度或回滚清单时加入 `release`
-15. 有行为变化时加入 `testing`
-16. 涉及 README、架构、ADR、CHANGELOG、AGENTS 或迁移说明时加入 `docs-style`
-17. 涉及协作、提交、PR 时加入 `commit-message` 和 `github-flow`
+5. 涉及系统切分、依赖方向、架构风格或质量属性取舍时加入 `software-architecture`
+6. 有安全、外部输入、权限、密钥、网络、文件或 shell 调用时加入 `secure-coding`
+7. 涉及接口、SDK、CLI 参数、webhook、错误语义、分页或版本兼容时加入 `api-design`
+8. 涉及长期运行服务、worker、队列、健康检查、超时、重试或资源上限时加入 `runtime-reliability`
+9. 涉及日志/指标/追踪、SLO、告警或排障关联 id 时加入 `observability`
+10. 涉及变慢、吞吐、内存/CPU、基准或剖析时加入 `performance`
+11. 涉及新增/升级/审计/移除依赖或锁文件时加入 `dependency-management`
+12. 涉及结构调整且声称行为不变时加入 `refactoring`（不要只靠 `clean-code`）
+13. 涉及实体/不变量/一致性边界/幂等键时加入 `data-modeling`
+14. 涉及 schema/数据/API 格式迁移或 expand-contract 时加入 `migration`
+15. 涉及版本号、tag、发版说明、灰度或回滚清单时加入 `release`
+16. 有行为变化时加入 `testing`
+17. 涉及 README、架构、ADR、CHANGELOG、AGENTS 或迁移说明时加入 `docs-style`
+18. 涉及协作、提交、PR 时加入 `commit-message` 和 `github-flow`
 
 ## 常见流程
 
@@ -68,6 +70,13 @@ description: >-
 1. 用 `codebase-analysis` 找入口、主路径、边界与不确定点
 2. 需要沉淀时用 `docs-style` 写架构简报或 ADR
 3. 行为含糊时用 `testing` 补表征测试再继续改
+
+### 架构设计
+
+1. 用 `software-architecture` 排序质量属性、切边界、选风格
+2. 领域不变量用 `data-modeling` 落清
+3. 重要决策用 `docs-style` 写 ADR / 更新 ARCHITECTURE
+4. 落地改造用 `refactoring`，避免大爆炸重写
 
 ### 实现功能
 

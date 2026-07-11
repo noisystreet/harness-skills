@@ -2,7 +2,7 @@ SKILLS_DIR ?= $(if $(CURSOR_SKILLS_DIR),$(CURSOR_SKILLS_DIR),$(HOME)/.cursor/ski
 SKILLS := $(patsubst %/SKILL.md,%,$(wildcard */SKILL.md))
 
 .DEFAULT_GOAL := list
-.PHONY: install uninstall list check
+.PHONY: install uninstall list catalog check
 
 install:
 	@mkdir -p "$(SKILLS_DIR)"
@@ -42,6 +42,9 @@ list:
 		fi; \
 		printf "%-22s %-9s %s\n" "$$skill" "$$linked" "$$target"; \
 	done
+
+catalog:
+	@python3 tools/catalog_skills.py --write
 
 check:
 	@python3 tools/check_skills.py

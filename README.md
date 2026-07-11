@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Skills](https://img.shields.io/badge/skills-25-brightgreen.svg)](README.md)
 [![CI](https://github.com/noisystreet/harness-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/noisystreet/harness-skills/actions/workflows/ci.yml)
+[![Latest release](https://img.shields.io/github/v/release/noisystreet/harness-skills?label=release)](https://github.com/noisystreet/harness-skills/releases/latest)
 [![AI Agents](https://img.shields.io/badge/AI%20Agents-Harness%20Skills-purple.svg)](README.md)
 [![GitHub repo](https://img.shields.io/badge/GitHub-noisystreet%2Fharness--skills-black.svg)](https://github.com/noisystreet/harness-skills)
 
@@ -144,7 +145,8 @@ tools/
 ├── check_skills.py       # make check 使用的仓库校验脚本
 ├── catalog_skills.py     # make catalog 使用的 README 目录生成脚本
 ├── cut_changelog.py      # changelog cut / extract
-└── release_flow.py       # make release-pr / release-tag（适配受保护 main）
+├── release_flow.py       # make release-pr / release-tag（适配受保护 main）
+└── release_install_notes.md  # GitHub Release 附带的安装说明
 ```
 
 每个 skill 至少包含一个 `SKILL.md`：

@@ -128,6 +128,7 @@ def main() -> int:
         *ROOT.glob("*/SKILL.md"),
         *ROOT.glob("*/reference.md"),
         *ROOT.glob("*/examples.md"),
+        *ROOT.glob("tools/*.md"),
     ]
     for template_dir in ROOT.glob("*/templates"):
         scan_roots.extend(p for p in template_dir.rglob("*") if p.is_file())

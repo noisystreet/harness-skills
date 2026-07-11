@@ -52,6 +52,8 @@ description: >-
 2. 发布产物或触发部署
 3. 观察错误率、延迟、关键业务指标、日志/告警
 
+对本仓库（Harness Skills）：用 `make release VERSION=x.y.z`，再 `git push origin HEAD && git push origin vx.y.z`；GitHub Actions 会用 CHANGELOG 对应段落创建 Release。
+
 发版后：
 
 1. 验证冒烟路径

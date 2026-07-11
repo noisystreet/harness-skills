@@ -4,7 +4,7 @@ TRAE_CN_SKILLS_DIR ?= $(HOME)/.trae-cn/skills
 SKILLS := $(patsubst %/SKILL.md,%,$(wildcard */SKILL.md))
 
 .DEFAULT_GOAL := help
-.PHONY: help install uninstall list catalog check
+.PHONY: help install uninstall list catalog check cut-changelog release-notes release
 .PHONY: install-trae uninstall-trae list-trae
 .PHONY: install-trae-cn uninstall-trae-cn list-trae-cn
 
@@ -76,3 +76,25 @@ catalog: ## Regenerate the README skills catalog
 
 check: ## Validate skill metadata, links, and README catalog
 	@python3 tools/check_skills.py
+
+cut-changelog: ## Move [Unreleased] into VERSION=x.y.z
+	@test -n "$(VERSION)" || (echo "Usage: make cut-changelog VERSION=0.1.0"; exit 1)
+	@python3 tools/cut_changelog.py cut --version "$(VERSION)"
+
+release-notes: ## Print CHANGELOG notes for VERSION=x.y.z
+	@test -n "$(VERSION)" || (echo "Usage: make release-notes VERSION=0.1.0"; exit 1)
+	@python3 tools/cut_changelog.py extract --version "$(VERSION)"
+
+release: ## Cut changelog, check, commit, and tag vVERSION
+	@test -n "$(VERSION)" || (echo "Usage: make release VERSION=0.1.0"; exit 1)
+	@python3 tools/cut_changelog.py cut --version "$(VERSION)"
+	@$(MAKE) --no-print-directory check
+	@git add CHANGELOG.md
+	@if git diff --cached --quiet -- CHANGELOG.md; then \
+		echo "CHANGELOG.md unchanged after cut"; \
+		exit 1; \
+	fi
+	@git commit -m "Release v$(VERSION)"
+	@git tag -a "v$(VERSION)" -m "v$(VERSION)"
+	@echo "Created commit and tag v$(VERSION)"
+	@echo "Publish with: git push origin HEAD && git push origin v$(VERSION)"

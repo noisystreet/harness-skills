@@ -19,8 +19,8 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Compile checker
-        run: python -m py_compile tools/check_skills.py
+      - name: Compile tools
+        run: python -m py_compile tools/check_skills.py tools/catalog_skills.py tools/cut_changelog.py
 
       - name: Run repository checks
         run: make check

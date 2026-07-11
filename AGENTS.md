@@ -15,7 +15,9 @@
 ├── */reference.md              # optional details for edge cases
 ├── */templates/                # optional reusable output templates
 ├── tools/check_skills.py       # repository validation
-├── Makefile                    # install/list/check/uninstall
+├── tools/catalog_skills.py     # README catalog generation
+├── tools/cut_changelog.py      # changelog cutover / release notes extract
+├── Makefile                    # install/list/check/catalog/release
 └── README.md                   # catalog and usage
 ```
 
@@ -24,11 +26,20 @@
 After changing skills, templates, examples, README, or validation logic:
 
 ```bash
+make catalog
 make check
 make install
 ```
 
 Use `make list` to confirm global links.
+
+To cut a release from `[Unreleased]`:
+
+```bash
+make release VERSION=x.y.z
+git push origin HEAD
+git push origin vx.y.z
+```
 
 ## Skill Authoring Rules
 

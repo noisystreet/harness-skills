@@ -1,11 +1,17 @@
-# Skills
+# Harness Skills
 
-个人常用的 AI 编程助手 Skills / 工作流规则集合。每个 skill 是一套可复用的指令，可被 Cursor、Claude Code、Codex、GitHub Copilot Chat 以及其他支持项目规则/上下文文件的编程 Agent 引用。
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Skills](https://img.shields.io/badge/skills-16-brightgreen.svg)](README.md)
+[![make check](https://img.shields.io/badge/make%20check-passing-brightgreen.svg)](Makefile)
+[![AI Agents](https://img.shields.io/badge/AI%20Agents-Harness%20Skills-purple.svg)](README.md)
+[![GitHub repo](https://img.shields.io/badge/GitHub-noisystreet%2Fharness--skills-black.svg)](https://github.com/noisystreet/harness-skills)
+
+用于约束、编排和复用 AI 编程 Agent 的工程化 skills / 工作流规则集合。每个 skill 是一套可复用的指令，可被 Cursor、Claude Code、Codex、GitHub Copilot Chat 以及其他支持项目规则/上下文文件的编程 Agent 引用。
 
 ## 目录结构
 
 ```text
-skills/
+harness-skills/
 ├── .gitignore
 ├── AGENTS.md
 ├── CHANGELOG.md

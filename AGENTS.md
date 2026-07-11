@@ -2,8 +2,8 @@
 
 ## Project Identity
 
-- Project: personal Cursor Agent Skills collection
-- Purpose: maintain reusable skills for common software engineering workflows
+- Project: Harness Skills (`harness-skills`)
+- Purpose: maintain reusable skills and workflow rules for harnessing AI coding agents in software engineering projects
 - Runtime: Markdown skills plus a small Python checker invoked by `make check`
 
 ## Directory Overview

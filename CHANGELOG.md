@@ -20,3 +20,5 @@ and this project uses semantic versioning when releases are created.
 - Reworded `README.md` to describe the collection as general AI coding-agent skills rather than Cursor-only skills.
 - Added usage guidance for non-Cursor tools such as project rule files, CLI agents, and chat-based assistants.
 - Renamed the Makefile install target variable to the generic `SKILLS_DIR` while keeping `CURSOR_SKILLS_DIR` compatible.
+- Renamed the project presentation to Harness Skills (`harness-skills`).
+- Added README badges for license, skill count, checks, AI agent usage, and the GitHub repository.

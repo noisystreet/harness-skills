@@ -32,6 +32,16 @@ make test
 
 ## pre-commit
 
+**强烈推荐** 所有长期维护项目配置 pre-commit。它是本地快速门禁，负责在提交前拦住格式、lint、密钥和提交信息这类低成本问题。
+
+默认要求：
+
+```bash
+pre-commit install
+pre-commit install --hook-type commit-msg
+pre-commit run --all-files
+```
+
 适合放：
 
 - 格式化或格式检查
@@ -46,6 +56,14 @@ make test
 - 大覆盖率报告
 - 长时间安全扫描
 - 需要真实外部服务的检查
+
+建议原则：
+
+1. pre-commit 是 CI 子集或同源入口，不要和 CI 两套规则
+2. hook 应快、稳定、离线可运行；慢检查放 CI
+3. `commit-msg` 用于提交信息规则，尤其是 Conventional Commits
+4. 密钥扫描和格式化优先放本地，减少无效 PR 往返
+5. 生成的配置文件应提交进仓库（如 `.pre-commit-config.yaml`）
 
 ## 质量门限
 

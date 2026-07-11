@@ -12,6 +12,9 @@ description: >-
 # Docs Style
 
 文档服务于决策、使用和协作。少写空话，多写读者需要执行或判断的信息。
+落地样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 总原则
 

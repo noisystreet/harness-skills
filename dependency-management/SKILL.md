@@ -14,6 +14,8 @@ description: >-
 依赖是生产代码的一部分。默认偏好标准库与已有依赖；新增必须有明确收益。
 
 落地样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 审查顺序
 

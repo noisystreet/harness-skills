@@ -15,6 +15,8 @@ description: >-
 发布是可回滚的变更交付，不是「合并到 main」的同义词。默认小步、可观察、可撤销。
 
 落地样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 审查顺序
 

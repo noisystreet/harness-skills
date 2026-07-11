@@ -12,6 +12,8 @@ description: >-
 提交信息说明「为什么这次改动存在」，而不是复述文件名。默认使用 Conventional Commits。
 
 更多输入/输出样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 格式
 

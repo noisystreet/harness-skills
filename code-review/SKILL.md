@@ -12,6 +12,8 @@ description: >-
 以发现真实问题为目标，不做泛泛风格点评。通用可读性见 `clean-code`，语言惯用法见对应 `*-style`。
 
 更多输出样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 审查顺序
 

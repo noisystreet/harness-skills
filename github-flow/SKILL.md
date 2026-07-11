@@ -12,6 +12,8 @@ description: >-
 主干始终可发布。短生命周期功能分支 → PR → review → 合并回 `main`。
 
 边界场景（rebase、冲突、draft、force-with-lease）见 [reference.md](reference.md)。
+落地样例见 [examples.md](examples.md)。
+
 
 ## 决策速查
 

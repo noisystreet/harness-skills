@@ -14,6 +14,8 @@ description: >-
 先把业务不变量与边界说清，再落到表结构或 API 字段。模型要表达规则，不只是存字段。
 
 落地样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 审查顺序
 

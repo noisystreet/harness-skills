@@ -12,6 +12,8 @@ description: >-
 先证据，后修改。每次只验证一个假设，避免边猜边改。
 
 更多排障报告样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 流程
 

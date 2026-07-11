@@ -13,6 +13,9 @@ description: >-
 # Project Bootstrap
 
 用于新项目初始化。目标是先建立可维护的最小工程骨架：项目定位、文档、格式化、lint、测试、安全基线、CI 入口。
+落地样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 通用原则
 

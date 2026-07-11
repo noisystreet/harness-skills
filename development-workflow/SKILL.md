@@ -10,6 +10,10 @@ description: >-
 # Development Workflow
 
 本 skill 只负责编排，不重复具体规则。需要细节时使用对应 skill。
+落地样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
+
 
 ## 路由表
 

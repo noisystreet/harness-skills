@@ -3,15 +3,16 @@ name: github-flow
 description: >-
   Follow GitHub Flow for branching, commits, PRs, review, and merge.
   Use when creating branches, opening or updating pull requests, handling
-  review comments, merging, resolving conflicts, or when the user mentions
-  GitHub Flow / PR / MR / 开 PR / 提 PR / 合并分支 / 分支流程.
+  review comments, merging, resolving conflicts, daily git hygiene
+  (status/stash/rebase/amend/bisect), or when the user mentions GitHub Flow /
+  PR / MR / 开 PR / 提 PR / 合并分支 / 分支流程 / git 卫生.
 ---
 
 # GitHub Flow
 
 主干始终可发布。短生命周期功能分支 → PR → review → 合并回 `main`。
 
-边界场景（rebase、冲突、draft、force-with-lease）见 [reference.md](reference.md)。
+边界场景（rebase、冲突、draft、force-with-lease）与日常 Git 卫生见 [reference.md](reference.md)。
 落地样例见 [examples.md](examples.md)。
 
 

@@ -1,6 +1,72 @@
 # GitHub Flow — 参考
 
-主路径见 [SKILL.md](SKILL.md)。此处仅边界场景。
+主路径见 [SKILL.md](SKILL.md)。此处为边界场景与日常 Git 卫生。
+
+## 日常 Git 卫生
+
+这些规则服务本地可预测性，减少脏工作区、错误分支和不可恢复的历史改写。
+
+### 开工前
+
+1. 先看状态：`git status -sb`；有未提交改动时不要盲目切分支
+2. 从最新主干开分支：`git fetch origin && git checkout main && git pull --ff-only`
+3. 一件事一条短分支；分支名用 `feat/` `fix/` `docs/` `chore/` `hotfix/` 等前缀
+4. 不要在 `main` 上直接堆功能提交（仓库明确允许直推除外）
+
+### 提交中
+
+1. 小步、可审查；提交信息按 `commit-message`
+2. 提交前跑项目质量入口（如 `make check`）；不要把明显红灯推进远端
+3. 不提交密钥、`.env`、构建产物、本机绝对路径配置
+4. 相关文件一起进同一逻辑提交；不要把无关格式化混进行为变更（除非用户要求大清理）
+
+### 暂存与清理
+
+| 场景 | 做法 |
+|------|------|
+| 临时打断，改动还不能提交 | `git stash push -u -m "wip: …"`，回来再 `stash pop` |
+| 改动属于当前功能但未完成 | 优先 draft PR / WIP 提交，少用长期 stash |
+| 误改文件想丢弃 | 确认无价值后 `git restore -- <path>`；已 staged 用 `git restore --staged` |
+| 看不清自己改了什么 | `git diff` / `git diff --cached`；需要时再 `git log -p` |
+
+### 更新与同步
+
+1. 工作中定期 `git fetch origin`，避免一次性巨大 rebase
+2. 功能分支跟上 `main`：优先 rebase；他人已基于你的分支则改 merge（见下方 Rebase vs merge）
+3. PR 合入后删除本地/远端功能分支，切回 `main` 并 `pull --ff-only`
+4. 发现本地 `main` 与远端分叉且内容等价（如签名重写提交）：以 `origin/main` 为准对齐，不要长期双轨
+
+### 改写历史（高风险）
+
+允许（需同时满足）：
+
+- 仅改**本人**、未共享或短生命周期分支
+- 目的明确：修补刚提交的笔误、rebase 到最新 `main`、整理未审查的本地提交
+
+默认禁止：
+
+- 改写已合入 `main` 的历史
+- 在他人正在基于的分支上 `rebase` / `commit --amend` / force push 而不协调
+- 用 `reset --hard` 丢弃有价值的未备份工作
+- 用 `--force` 代替 `--force-with-lease`
+
+`commit --amend` 额外条件：
+
+1. 只改 HEAD，且该提交通常尚未推送；或推送后仅本人分支并随后 `--force-with-lease`
+2. 不把无关新文件偷偷塞进「旧」提交来掩盖审查范围
+3. 用户规则/仓库钩子禁止 amend 时，改为新提交
+
+### 排查与恢复
+
+1. 找引入点：`git bisect`（配合测试命令）；范围要可复现
+2. 误删分支/提交：先 `git reflog`，再恢复；不要立刻 `gc` / 硬清理
+3. 冲突解决不了或不懂业务语义：停下询问，不要猜
+
+### 配置与忽略
+
+1. 不把本机 `user.name` / `user.email` / 签名配置写进仓库文档当「项目要求」的唯一真值
+2. 本地忽略用 `.git/info/exclude` 或个人 global ignore；共享规则进 `.gitignore`
+3. 大文件、生成物、环境文件进 ignore；发现误提交先停推送并按仓库流程处理（必要时轮换密钥）
 
 ## Draft PR
 

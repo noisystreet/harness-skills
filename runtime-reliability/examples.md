@@ -84,3 +84,21 @@ Better:
 After a bounded number of attempts, move the message to a dead-letter queue,
 record the reason, and continue processing other messages.
 ```
+
+## Feature Flag Cutover
+
+Bad:
+
+```text
+Merge new checkout path behind if True and delete the old path in the same PR.
+```
+
+Better:
+
+```text
+1. Ship new path behind checkout_v2=false.
+2. Enable for internal tenants, then 5% canary.
+3. Compare success rate and latency by flag state.
+4. Default on, keep kill switch for one release.
+5. Remove old path and flag after the cleanup date.
+```

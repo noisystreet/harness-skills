@@ -89,9 +89,10 @@ clang-tidy <files> -p build
 
 1. 禁止无界 C 数组与原始指针算术（除非性能关键路径且有审查）
 2. 整数：注意符号 / 窄化；用 `{ }` 列表初始化避免窄化
-3. 线程：共享可变状态必须同步；默认假设数据竞争是 bug
-4. 头文件：include guard 或 `#pragma once`；只 include 用到的头；前向声明减依赖
-5. 不在头文件里用 `using namespace std;`
+3. 线程：共享可变状态必须同步；默认假设数据竞争是 bug；锁顺序一致，临界区尽量短
+4. 优先 `std::jthread` / RAII 接合（项目标准允许时）；不要 `detach` 后假定对象仍存活
+5. 头文件：include guard 或 `#pragma once`；只 include 用到的头；前向声明减依赖
+6. 不在头文件里用 `using namespace std;`
 
 ## 错误处理
 

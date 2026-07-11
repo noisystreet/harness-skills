@@ -29,10 +29,13 @@ jobs:
           echo "tag=${tag}" >> "$GITHUB_OUTPUT"
           echo "version=${version}" >> "$GITHUB_OUTPUT"
 
-      - name: Extract changelog notes
+      - name: Build release notes
         run: |
-          python3 tools/cut_changelog.py extract --version "${{ steps.version.outputs.version }}" \
-            > /tmp/release-notes.md
+          {
+            python3 tools/cut_changelog.py extract --version "${{ steps.version.outputs.version }}"
+            echo
+            cat tools/release_install_notes.md
+          } > /tmp/release-notes.md
           cat /tmp/release-notes.md
 
       - name: Create GitHub Release

@@ -132,3 +132,27 @@ git push --force-with-lease
 - 仍优先走 PR + CI
 - 仅当用户明确说跳过 review/CI 并接受风险时，才直推或简化流程
 - 事后用 Follow-up 项补测试与清理
+
+## 外部参考
+
+### Guides
+
+- [GitHub Flow](https://docs.github.com/en/get-started/using-github/github-flow) - 官方短生命周期分支与 PR 流程
+- [About pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) - PR 协作模型
+- [About protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) - 保护 `main`、要求 CI/review
+- [Pro Git book](https://git-scm.com/book/en/v2) - 分支、rebase、reflog 等底层概念
+- 本仓库 `commit-message` - 提交信息规范
+- 本仓库 `release` - tag、CHANGELOG、发版与回滚
+
+### What To Learn
+
+- 主干始终可发布；功能在短分支上通过 PR 进入
+- 用保护规则与 CI 防止直推破坏 `main`
+- 改写历史只限于本人短分支，并优先 `--force-with-lease`
+- 日常保持干净工作区：先 `status`，再切分支 / rebase / 发 PR
+
+### Caveats
+
+- 组织可能强制 squash merge 或 merge commit；以仓库设置为准
+- Pro Git 覆盖面广，按需查阅，不要把全书规则一次性塞进每个 PR
+- 提交信息与发版细节以 `commit-message` / `release` 为准，本文件不重复展开

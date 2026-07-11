@@ -1,10 +1,10 @@
 ## Summary
 
-- 
+-
 
 ## Test Plan
 
-- [ ] 
+- [ ]
 
 ## Impact
 

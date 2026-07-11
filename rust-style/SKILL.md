@@ -9,7 +9,7 @@ description: >-
 
 # Rust 编程规范
 
-以可读、可维护、惯用 Rust 为准。默认遵循 `rustfmt` + `clippy`；新项目强烈推荐 `nextest`、`cargo deny`、`cargo machete`、`taplo`。  
+以可读、可维护、惯用 Rust 为准。默认遵循 `rustfmt` + `clippy`；新项目强烈推荐 `nextest`、`cargo deny`、`cargo machete`、`taplo`。
 **命名意图、隐式状态、函数拆分等通用规则** → 见 `clean-code`。本文件只定 Rust 特例。
 
 ## 硬规则（默认）

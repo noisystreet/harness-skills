@@ -88,6 +88,10 @@ def main() -> int:
 
     scan_roots = [
         ROOT / "README.md",
+        ROOT / "CONTRIBUTING.md",
+        ROOT / ".pre-commit-config.yaml",
+        *ROOT.glob(".github/workflows/*.yml"),
+        *ROOT.glob(".github/workflows/*.yaml"),
         *ROOT.glob("*/SKILL.md"),
         *ROOT.glob("*/reference.md"),
         *ROOT.glob("*/examples.md"),

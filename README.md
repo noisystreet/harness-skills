@@ -1,7 +1,7 @@
 # Harness Skills
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-23-brightgreen.svg)](README.md)
+[![Skills](https://img.shields.io/badge/skills-24-brightgreen.svg)](README.md)
 [![CI](https://github.com/noisystreet/harness-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/noisystreet/harness-skills/actions/workflows/ci.yml)
 [![AI Agents](https://img.shields.io/badge/AI%20Agents-Harness%20Skills-purple.svg)](README.md)
 [![GitHub repo](https://img.shields.io/badge/GitHub-noisystreet%2Fharness--skills-black.svg)](https://github.com/noisystreet/harness-skills)
@@ -33,6 +33,9 @@ harness-skills/
 │   ├── SKILL.md
 │   └── examples.md
 ├── code-review/          # 代码审查流程与输出格式
+│   ├── SKILL.md
+│   └── examples.md
+├── codebase-analysis/    # 陌生代码库/源码分析与简报
 │   ├── SKILL.md
 │   └── examples.md
 ├── commit-message/       # 提交信息规范
@@ -129,6 +132,7 @@ skill-name/
 | [`ci-quality`](ci-quality/) | Design and review CI quality gates, local hooks, and repository checks for software projects. Use when setting up GitHub Actions/GitLab CI, pre-commit, format/lint/test/type-check workflows, dependency audits, coverage gates, or when the user mentions CI / pre-commit / quality gates / 持续集成. |
 | [`clean-code`](clean-code/) | Apply language-agnostic clean code rules for readable, maintainable software. Use when writing, refactoring, or reviewing code of any language; when the user mentions clean code, readability, code quality, naming, structure, concurrency, or shared mutable state. Language-specific idioms defer to rust-style, cpp-style, python-style, or other *-style skills. |
 | [`code-review`](code-review/) | Review code changes for correctness, regressions, maintainability, security, and test gaps. Use when reviewing pull requests, diffs, local changes, or when the user asks for code review / review / 审查 / 看看改动. Style-specific checks defer to clean-code and language *-style skills. |
+| [`codebase-analysis`](codebase-analysis/) | Analyze unfamiliar source codebases to build a reliable mental model: find entrypoints, map module boundaries and data flow, identify invariants and extension points, and produce a structured briefing. Use when onboarding to a repo, reading third-party library source, mapping architecture, or when the user mentions codebase analysis / source analysis / read the code / 源码分析 / 读代码 / 摸清项目 / 模块关系. Bug investigation defers to debugging; PR critique defers to code-review; restructuring defers to refactoring. |
 | [`commit-message`](commit-message/) | Generate and review clear Conventional Commit messages from git diffs, staged changes, or change descriptions. Use when writing commits, reviewing commit history, choosing feat/fix/refactor/chore/test/docs types, or when the user mentions commit message / 提交信息 / 写提交. |
 | [`cpp-style`](cpp-style/) | Apply modern C++ coding standards (C++17/20 idioms, RAII, safety, clarity). Use when writing, refactoring, or reviewing C++ code, CMake/Bazel C++ targets, or when the user mentions C++ style / guidelines / Modern C++ / CMake / clang-format / clang-tidy. General readability rules defer to clean-code; this skill owns C++-specific rules. |
 | [`data-modeling`](data-modeling/) | Design and review domain data models, invariants, boundaries, identity keys, consistency expectations, and persistence mapping. Use when defining entities, aggregates, schemas, idempotency keys, state transitions, or when the user mentions data modeling / domain model / invariant / aggregate / 数据模型 / 不变量 / 一致性. HTTP/API shapes defer to api-design; migration mechanics defer to migration. |
@@ -169,6 +173,7 @@ skill-name/
 | 发版 / 回滚 | `release` + `ci-quality` + `docs-style` |
 | 审 PR / diff | `code-review` + `clean-code` + `testing` + `secure-coding` + `ci-quality` |
 | 排查 bug | `debugging` + `testing` |
+| 理解陌生代码 / 源码分析 | `codebase-analysis` + `docs-style` |
 | 提 PR | `github-flow` + `commit-message` + `ci-quality` |
 | 写/改文档 | `docs-style` |
 | 新项目初始化 | `project-bootstrap` + `docs-style` + `ci-quality` + 对应语言 `*-style` |
@@ -183,6 +188,7 @@ skill-name/
 - 「按 `release` 切 v0.1.0 并发版」
 - 「按 `python-style` 写这个模块」
 - 「按 `debugging` 帮我排查这个失败」
+- 「按 `codebase-analysis` 分析这个仓库/库的源码」
 - 「按 `performance` 优化这条慢路径」
 - 「按 `refactoring` 安全重构这个模块」
 - 「按 `observability` 补齐日志和指标」

@@ -9,6 +9,7 @@ and this project uses semantic versioning when releases are created.
 
 ### Added
 
+- Added changelog cutover tooling and GitHub Release automation (`make release`, `tools/cut_changelog.py`, `.github/workflows/release.yml`).
 - Expanded examples and reference guides across skills that previously lacked them.
 - Added `software-architecture` skill with examples and references; documented design-pattern trade-offs in `clean-code` and `refactoring`.
 - Added `codebase-analysis` skill for structured unfamiliar-codebase briefings.

@@ -67,6 +67,18 @@ make list
 `make check` validates skill metadata, README links, file references, empty
 templates/examples, and user-specific absolute paths.
 
+## Releases
+
+1. Record user-visible changes under `CHANGELOG.md` `[Unreleased]`.
+2. On `main` after merge:
+   ```bash
+   make release VERSION=x.y.z
+   git push origin HEAD
+   git push origin vx.y.z
+   ```
+3. Pushing the `v*` tag creates a GitHub Release whose body is extracted from
+   that CHANGELOG section.
+
 ## Commit Messages
 
 Use clear Conventional Commit style where practical:

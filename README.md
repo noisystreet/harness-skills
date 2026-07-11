@@ -14,7 +14,8 @@
 harness-skills/
 ├── .github/
 │   └── workflows/
-│       └── ci.yml
+│       ├── ci.yml
+│       └── release.yml       # tag v* → GitHub Release（正文来自 CHANGELOG）
 ├── .gitignore
 ├── .pre-commit-config.yaml
 ├── AGENTS.md
@@ -22,7 +23,7 @@ harness-skills/
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
-├── Makefile              # 安装 / 卸载 / 查看 / 校验 skill（含 Trae）
+├── Makefile              # 安装 / 卸载 / 查看 / 校验 / 发版 skill（含 Trae）
 ├── api-design/           # API 契约、错误语义、分页、兼容性
 │   ├── SKILL.md
 │   ├── reference.md
@@ -141,7 +142,8 @@ harness-skills/
     └── examples.md
 tools/
 ├── check_skills.py       # make check 使用的仓库校验脚本
-└── catalog_skills.py     # make catalog 使用的 README 目录生成脚本
+├── catalog_skills.py     # make catalog 使用的 README 目录生成脚本
+└── cut_changelog.py      # make release / release workflow 使用的 changelog 工具
 ```
 
 每个 skill 至少包含一个 `SKILL.md`：
@@ -294,6 +296,32 @@ make list-trae-cn
 ```bash
 make help
 make check
+```
+
+### 发版
+
+用户可见变更先写入 `CHANGELOG.md` 的 `[Unreleased]`。准备发版时：
+
+```bash
+# 在 main（或已合并的发布提交）上
+make release VERSION=0.1.0
+git push origin HEAD
+git push origin v0.1.0
+```
+
+`make release` 会：
+
+1. 把 `[Unreleased]` 切成 `## [0.1.0] - <today>`
+2. 重建空的 `[Unreleased]`
+3. 运行 `make check`
+4. 提交 `Release v0.1.0` 并创建 annotated tag `v0.1.0`
+
+推送 `v*` tag 后，GitHub Actions `release.yml` 会从 CHANGELOG 抽出对应版本正文，自动创建 GitHub Release。
+
+只查看某版本说明：
+
+```bash
+make release-notes VERSION=0.1.0
 ```
 
 卸载本仓库创建的链接：

@@ -25,93 +25,120 @@ harness-skills/
 ├── Makefile              # 安装 / 卸载 / 查看 / 校验 skill（含 Trae）
 ├── api-design/           # API 契约、错误语义、分页、兼容性
 │   ├── SKILL.md
+│   ├── reference.md
+│   └── examples.md
+├── ci-quality/           # CI / pre-commit / 质量门禁
+│   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
 ├── clean-code/           # 跨语言通用编程规范
 │   ├── SKILL.md
-│   └── reference.md
-├── ci-quality/           # CI / pre-commit / 质量门禁
-│   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── code-review/          # 代码审查流程与输出格式
+├── code-review/           # 代码审查流程与输出格式
 │   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── codebase-analysis/    # 陌生代码库/源码分析与简报
+├── codebase-analysis/           # 陌生代码库/源码分析与简报
 │   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── commit-message/       # 提交信息规范
+├── commit-message/           # 提交信息规范
 │   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── debugging/            # 系统化排障流程
+├── cpp-style/           # C++ 编程规范
 │   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── data-modeling/        # 领域模型、不变量、一致性边界
+├── data-modeling/           # 领域模型、不变量、一致性边界
 │   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── dependency-management/ # 依赖选型、锁定、审计与升级
+├── debugging/           # 系统化排障流程
 │   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── development-workflow/ # 常用开发任务的 skill 路由
-│   └── SKILL.md
+├── dependency-management/           # 依赖选型、锁定、审计与升级
+│   ├── SKILL.md
+│   ├── reference.md
+│   └── examples.md
+├── development-workflow/           # 常用开发任务的 skill 路由
+│   ├── SKILL.md
+│   ├── reference.md
+│   └── examples.md
 ├── docs-style/           # README / 架构 / ADR / CHANGELOG 文档规范
-│   └── SKILL.md
-├── github-flow/          # GitHub 协作流程
+│   ├── SKILL.md
+│   ├── reference.md
+│   └── examples.md
+├── github-flow/           # GitHub 协作流程
 │   ├── SKILL.md
 │   ├── reference.md      # 边界场景（rebase / 冲突 / draft 等）
+│   ├── examples.md
 │   └── templates/        # PR 正文模板
-│       ├── pr-feature.md
 │       ├── pr-bugfix.md
+│       ├── pr-feature.md
 │       └── pr-hotfix.md
-├── migration/            # Schema / API / 数据迁移与兼容窗口
+├── migration/           # Schema / API / 数据迁移与兼容窗口
 │   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── observability/        # 日志 / 指标 / 追踪 / SLO / 告警
+├── observability/           # 日志 / 指标 / 追踪 / SLO / 告警
 │   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── performance/          # 性能预算、测量、剖析与回归防护
+├── performance/           # 性能预算、测量、剖析与回归防护
 │   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── project-bootstrap/    # 新项目初始化建议
+├── project-bootstrap/           # 新项目初始化建议
 │   ├── SKILL.md
+│   ├── reference.md
+│   ├── examples.md
 │   └── templates/        # AGENTS / 架构 / ADR / PR / 安全 / 贡献 / CI 模板
+│       ├── ADR.md
 │       ├── AGENTS.md
 │       ├── ARCHITECTURE.md
-│       ├── ADR.md
+│       ├── CHANGELOG.md
+│       ├── CONTRIBUTING.md
 │       ├── PULL_REQUEST_TEMPLATE.md
 │       ├── SECURITY.md
-│       ├── CONTRIBUTING.md
-│       ├── CHANGELOG.md
-│       ├── env.example
 │       ├── editorconfig
-│       ├── pre-commit-config.yaml
-│       └── github-actions-ci.yml
-├── refactoring/          # 安全、小步、行为不变的重构
+│       ├── env.example
+│       ├── github-actions-ci.yml
+│       └── pre-commit-config.yaml
+├── python-style/           # Python 编程规范
 │   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── release/              # 版本、发版、灰度与回滚
+├── refactoring/           # 安全、小步、行为不变的重构
 │   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── runtime-reliability/  # 服务/Worker 运行时可靠性
+├── release/           # 版本、发版、灰度与回滚
 │   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── secure-coding/        # 通用安全编码基线
+├── runtime-reliability/           # 服务/Worker 运行时可靠性
 │   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-├── software-architecture/ # 质量属性、边界、依赖与架构风格
-│   ├── SKILL.md
-│   ├── examples.md
-│   └── reference.md
 ├── rust-style/           # Rust 编程规范
 │   ├── SKILL.md
-│   └── reference.md
-├── cpp-style/            # C++ 编程规范
-│   ├── SKILL.md
-│   └── reference.md
-├── testing/              # 通用测试策略
-│   ├── SKILL.md
+│   ├── reference.md
 │   └── examples.md
-└── python-style/         # Python 编程规范
+├── secure-coding/           # 通用安全编码基线
+│   ├── SKILL.md
+│   ├── reference.md
+│   └── examples.md
+├── software-architecture/           # 质量属性、边界、依赖与架构风格
+│   ├── SKILL.md
+│   ├── reference.md
+│   └── examples.md
+└── testing/           # 通用测试策略
     ├── SKILL.md
-    └── reference.md
+    ├── reference.md
+    └── examples.md
 tools/
 ├── check_skills.py       # make check 使用的仓库校验脚本
 └── catalog_skills.py     # make catalog 使用的 README 目录生成脚本

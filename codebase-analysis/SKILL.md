@@ -17,6 +17,8 @@ description: >-
 先地图，后细节；不确定就标注，不要编造。
 
 落地样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 审查顺序
 

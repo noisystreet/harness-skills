@@ -15,6 +15,8 @@ description: >-
 长期运行进程必须能启动、停止、降级、观测和恢复。纯库或一次性脚本按需裁剪。
 
 更多运行时可靠性样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 审查顺序
 

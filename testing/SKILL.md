@@ -13,6 +13,8 @@ description: >-
 测试关注「用户可观察行为」与「未来回归是否会被抓住」。语言工具细节交给对应 `*-style`。
 
 更多测试设计样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 先判断测试层级
 

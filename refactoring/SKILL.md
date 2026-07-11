@@ -15,6 +15,8 @@ description: >-
 重构默认保持可观察行为不变。先让改动可安全移动，再谈更漂亮的结构。
 
 落地样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 审查顺序
 

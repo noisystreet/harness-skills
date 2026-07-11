@@ -15,6 +15,8 @@ description: >-
 先证明慢在哪里，再改。没有测量的优化默认视为投机。
 
 落地样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 审查顺序
 

@@ -16,6 +16,8 @@ description: >-
 优先有用信号，不堆无标签指标。
 
 落地样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 审查顺序
 

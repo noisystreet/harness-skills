@@ -14,6 +14,8 @@ description: >-
 迁移默认假设旧版本与新版本会短暂共存。先扩容兼容，再切换，最后收缩清理。
 
 落地样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 审查顺序
 

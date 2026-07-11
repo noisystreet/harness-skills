@@ -11,6 +11,8 @@ description: >-
 
 CI 与本地命令应使用同一套质量入口，避免「本地能过、CI 不过」或 Agent 猜命令。
 落地样例见 [examples.md](examples.md)。
+参考资料见 [reference.md](reference.md)。
+
 
 ## 最小门禁
 

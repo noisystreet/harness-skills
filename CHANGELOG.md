@@ -9,6 +9,7 @@ and this project uses semantic versioning when releases are created.
 
 ### Added
 
+- Added `software-architecture` skill with examples and references; documented design-pattern trade-offs in `clean-code` and `refactoring`.
 - Added `codebase-analysis` skill for structured unfamiliar-codebase briefings.
 - Added `migration`, `data-modeling`, and `release` skills with examples.
 - Expanded ADR guidance in `docs-style`, concurrency rules in `clean-code` and language styles, and feature-flag cutover rules in `runtime-reliability`.

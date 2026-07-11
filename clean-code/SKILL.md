@@ -4,14 +4,16 @@ description: >-
   Apply language-agnostic clean code rules for readable, maintainable software.
   Use when writing, refactoring, or reviewing code of any language; when the user
   mentions clean code, readability, code quality, naming, structure, concurrency,
-  or shared mutable state.
+  shared mutable state, or design patterns.
   Language-specific idioms defer to rust-style, cpp-style, python-style, or other *-style skills.
+  System boundaries and architecture styles defer to software-architecture.
 ---
 
 # Clean Code
 
 跨语言的可读性与可维护性约束。
 **语言惯用法、工具链、所有权等** → 见 `rust-style` / `cpp-style` / `python-style`（及其他 `*-style`）。本 skill 不覆盖语言特例。
+**系统切分、依赖规则、架构风格** → 见 `software-architecture`。
 优秀项目特征、教材和设计参考 → 见 [reference.md](reference.md)。
 
 ## 命名
@@ -44,6 +46,31 @@ description: >-
 4. 可变状态范围尽量小；谁拥有、谁修改写清楚
 5. 需要状态机时用显式状态类型（枚举/代数类型），禁止一堆布尔组合伪装状态
 6. 函数要么查询要么命令，避免「改状态又返回复杂结果」的隐式耦合（合理的 fluent API 除外）
+
+## 设计模式（手法，不是目标）
+
+模式用于消除**已经出现**的有害复杂度。禁止「先选模式再找问题」。
+
+何时考虑：
+
+1. 同一算法/策略多变体，分支爆炸 → Strategy / 查表 / 多态
+2. 需要隔离不稳定外部接口 → Adapter / Facade
+3. 创建过程复杂或要约束构造不变量 → 工厂/建造者（保持简单）
+4. 需要在不修改稳定核心的前提下扩展行为 → 明确扩展点（观察者/插件注册表等）
+5. 一堆布尔/可选依赖组合成隐式产品族 → 显式类型或组合，而不是更多旗标
+
+何时不要：
+
+1. 只有一两个实现却引入完整策略框架
+2. 为「看起来像企业架构」加多余接口与间接层
+3. 用模式名替代清晰命名与小函数
+4. 把架构风格问题（边界/依赖）伪装成类图模式堆砌 → 改走 `software-architecture`
+
+规则：
+
+- 先用语言惯用设施（枚举、闭包、trait/interface、匹配）表达，再引入命名模式
+- 每个引入的间接层都要能一句话说清「换来了什么」
+- 模式实现仍遵守命名、状态与错误处理规则
 
 ## 并发与共享状态
 

@@ -27,7 +27,8 @@ harness-skills/
 │   ├── SKILL.md
 │   └── examples.md
 ├── clean-code/           # 跨语言通用编程规范
-│   └── SKILL.md
+│   ├── SKILL.md
+│   └── reference.md
 ├── ci-quality/           # CI / pre-commit / 质量门禁
 │   └── SKILL.md
 ├── code-review/          # 代码审查流程与输出格式
@@ -64,16 +65,20 @@ harness-skills/
 ├── secure-coding/        # 通用安全编码基线
 │   └── SKILL.md
 ├── rust-style/           # Rust 编程规范
-│   └── SKILL.md
+│   ├── SKILL.md
+│   └── reference.md
 ├── cpp-style/            # C++ 编程规范
-│   └── SKILL.md
+│   ├── SKILL.md
+│   └── reference.md
 ├── testing/              # 通用测试策略
 │   ├── SKILL.md
 │   └── examples.md
 └── python-style/         # Python 编程规范
-    └── SKILL.md
+    ├── SKILL.md
+    └── reference.md
 tools/
-└── check_skills.py       # make check 使用的仓库校验脚本
+├── check_skills.py       # make check 使用的仓库校验脚本
+└── catalog_skills.py     # make catalog 使用的 README 目录生成脚本
 ```
 
 每个 skill 至少包含一个 `SKILL.md`：

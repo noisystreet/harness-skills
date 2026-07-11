@@ -9,6 +9,7 @@ and this project uses semantic versioning when releases are created.
 
 ### Added
 
+- Added reference guides for `clean-code`, `rust-style`, `cpp-style`, and `python-style`.
 - Added `make catalog` to regenerate the README skills catalog from `SKILL.md` metadata.
 - Added repository `.pre-commit-config.yaml` with generic file checks, private key detection, and `make check`.
 - Added GitHub Actions CI workflow for `make check`, checker compilation, and pre-commit.

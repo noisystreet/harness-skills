@@ -12,6 +12,7 @@ description: >-
 
 以可读、惯用的现代 Python（默认 3.10+，新项目推荐 3.12+）为准。
 **命名意图、隐式状态、函数拆分等通用规则** → 见 `clean-code`。本文件只定 Python 特例。
+优秀项目、教材和官方资料 → 见 [reference.md](reference.md)。
 
 ## 硬规则（默认）
 

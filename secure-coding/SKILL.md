@@ -11,6 +11,7 @@ description: >-
 # Secure Coding
 
 默认假设输入不可信、权限需显式、密钥不可见。优先发现真实风险，不做安全八股。
+落地样例见 [examples.md](examples.md)。
 
 ## 审查顺序
 

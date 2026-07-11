@@ -33,6 +33,17 @@ def main() -> int:
         lines = text.splitlines()
         rel_path = path.relative_to(ROOT)
 
+        examples_path = skill_dir / "examples.md"
+        reference_path = skill_dir / "reference.md"
+        if not examples_path.is_file():
+            error(f"{skill}/examples.md is required")
+        elif not examples_path.read_text(encoding="utf-8").strip():
+            error(f"{skill}/examples.md must not be empty")
+        if not reference_path.is_file():
+            error(f"{skill}/reference.md is required")
+        elif not reference_path.read_text(encoding="utf-8").strip():
+            error(f"{skill}/reference.md must not be empty")
+
         if not lines or lines[0] != "---":
             error(f"{rel_path} must start with YAML frontmatter")
             continue
@@ -73,12 +84,29 @@ def main() -> int:
         if f"[`{skill}`]({skill}/)" not in README:
             error(f"README.md missing skill table entry for {skill}")
 
+        if "](examples.md)" not in text:
+            error(f"{rel_path} must link to examples.md")
+        if "](reference.md)" not in text:
+            error(f"{rel_path} must link to reference.md")
+
         for link in re.findall(r"\[[^\]]+\]\(([^)]+)\)", text):
             if "://" in link or link.startswith("#") or link.startswith("mailto:"):
                 continue
             target = (skill_dir / link).resolve()
             if not target.exists():
                 error(f"{rel_path} links to missing file: {link}")
+
+    badge_match = re.search(
+        r"https://img\.shields\.io/badge/skills-(\d+)-brightgreen\.svg",
+        README,
+    )
+    if not badge_match:
+        error("README.md missing skills count badge")
+    elif int(badge_match.group(1)) != len(skill_names):
+        error(
+            "README.md skills badge shows "
+            f"{badge_match.group(1)} but repository has {len(skill_names)} skills"
+        )
 
     for skill in skill_names:
         if skill_names.count(skill) > 1:

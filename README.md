@@ -1,7 +1,7 @@
 # Harness Skills
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-16-brightgreen.svg)](README.md)
+[![Skills](https://img.shields.io/badge/skills-20-brightgreen.svg)](README.md)
 [![CI](https://github.com/noisystreet/harness-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/noisystreet/harness-skills/actions/workflows/ci.yml)
 [![AI Agents](https://img.shields.io/badge/AI%20Agents-Harness%20Skills-purple.svg)](README.md)
 [![GitHub repo](https://img.shields.io/badge/GitHub-noisystreet%2Fharness--skills-black.svg)](https://github.com/noisystreet/harness-skills)
@@ -41,6 +41,9 @@ harness-skills/
 ├── debugging/            # 系统化排障流程
 │   ├── SKILL.md
 │   └── examples.md
+├── dependency-management/ # 依赖选型、锁定、审计与升级
+│   ├── SKILL.md
+│   └── examples.md
 ├── development-workflow/ # 常用开发任务的 skill 路由
 │   └── SKILL.md
 ├── docs-style/           # README / 架构 / ADR / CHANGELOG 文档规范
@@ -52,6 +55,12 @@ harness-skills/
 │       ├── pr-feature.md
 │       ├── pr-bugfix.md
 │       └── pr-hotfix.md
+├── observability/        # 日志 / 指标 / 追踪 / SLO / 告警
+│   ├── SKILL.md
+│   └── examples.md
+├── performance/          # 性能预算、测量、剖析与回归防护
+│   ├── SKILL.md
+│   └── examples.md
 ├── project-bootstrap/    # 新项目初始化建议
 │   ├── SKILL.md
 │   └── templates/        # AGENTS / 架构 / ADR / PR / 安全 / 贡献 / CI 模板
@@ -66,6 +75,9 @@ harness-skills/
 │       ├── editorconfig
 │       ├── pre-commit-config.yaml
 │       └── github-actions-ci.yml
+├── refactoring/          # 安全、小步、行为不变的重构
+│   ├── SKILL.md
+│   └── examples.md
 ├── runtime-reliability/  # 服务/Worker 运行时可靠性
 │   ├── SKILL.md
 │   └── examples.md
@@ -111,11 +123,15 @@ skill-name/
 | [`commit-message`](commit-message/) | Generate and review clear Conventional Commit messages from git diffs, staged changes, or change descriptions. Use when writing commits, reviewing commit history, choosing feat/fix/refactor/chore/test/docs types, or when the user mentions commit message / 提交信息 / 写提交. |
 | [`cpp-style`](cpp-style/) | Apply modern C++ coding standards (C++17/20 idioms, RAII, safety, clarity). Use when writing, refactoring, or reviewing C++ code, CMake/Bazel C++ targets, or when the user mentions C++ style / guidelines / Modern C++ / CMake / clang-format / clang-tidy. General readability rules defer to clean-code; this skill owns C++-specific rules. |
 | [`debugging`](debugging/) | Debug software failures systematically by reproducing, gathering evidence, narrowing hypotheses, and verifying fixes. Use when investigating bugs, failing tests, crashes, performance anomalies, flaky behavior, or when the user mentions debug / debugging / 排查 / 报错 / 失败. |
+| [`dependency-management`](dependency-management/) | Choose, pin, audit, upgrade, and remove software dependencies with supply-chain awareness. Use when adding libraries, updating lockfiles, reviewing dependency diffs, evaluating licenses/advisories, or when the user mentions dependencies / lockfile / supply chain / cargo deny / npm audit / 依赖 / 升级依赖. Security review of app code defers to secure-coding; CI wiring defers to ci-quality. |
 | [`development-workflow`](development-workflow/) | Route common software development tasks to the right combination of skills and execution order. Use when the user asks to develop, implement, refactor, fix bugs, review code, set up a project, write tests, prepare commits/PRs, or when the user mentions development workflow / 开发流程 / 按流程来. |
 | [`docs-style`](docs-style/) | Write and review project documentation such as README, architecture docs, ADRs, CHANGELOG, AGENTS.md, SECURITY.md, API docs, and migration notes. Use when creating or updating docs, documenting code/API changes, writing release notes, or when the user mentions documentation / docs / README / ADR / CHANGELOG / 文档. |
 | [`github-flow`](github-flow/) | Follow GitHub Flow for branching, commits, PRs, review, and merge. Use when creating branches, opening or updating pull requests, handling review comments, merging, resolving conflicts, or when the user mentions GitHub Flow / PR / MR / 开 PR / 提 PR / 合并分支 / 分支流程. |
+| [`observability`](observability/) | Design and review observability for applications and services: structured logs, metrics, traces, correlation IDs, SLIs/SLOs, and actionable alerts. Use when adding logging/metrics/tracing, debugging production with telemetry, defining dashboards/alerts, or when the user mentions observability / OpenTelemetry / metrics / tracing / SLO / 可观测 / 监控告警. Runtime failure modes defer to runtime-reliability; secret redaction defers to secure-coding. |
+| [`performance`](performance/) | Improve and review software performance with measurement-first discipline: define budgets, benchmark, profile, fix hotspots, and guard against regressions. Use when optimizing latency/throughput/memory/CPU, investigating slowness, adding benchmarks, or when the user mentions performance / profiling / benchmark / 性能 / 优化 / 变慢. Correctness and reliability defer to testing, debugging, and runtime-reliability. |
 | [`project-bootstrap`](project-bootstrap/) | Bootstrap new software projects with sensible modern defaults for tooling, layout, documentation, quality checks, tests, CI, and agent-facing docs. Use when creating a new project, initializing Python/Rust/C++ repositories, setting up pyproject/Cargo/CMake, AGENTS.md, LICENSE, SECURITY.md, or when the user mentions project bootstrap / 初始化项目 / 新项目脚手架. Language-specific conventions defer to python-style, rust-style, cpp-style, testing, secure-coding, and github-flow. |
 | [`python-style`](python-style/) | Apply idiomatic modern Python coding standards with strong preference for uv, ruff, type hints, and pytest. Use when writing, refactoring, or reviewing Python code, or when the user mentions Python style / PEP 8 / type hints / pytest / uv / ruff. General readability rules defer to clean-code; this skill owns Python-specific rules. |
+| [`refactoring`](refactoring/) | Perform safe, behavior-preserving refactors in small verified steps with characterization tests, clear seams, and minimal blast radius. Use when restructuring code, reducing complexity, extracting modules, renaming across boundaries, paying down tech debt, or when the user mentions refactor / refactoring / 重构 / 整理代码 / strangler. Style rules defer to clean-code and language *-style skills; bug fixes that change behavior are not pure refactors. |
 | [`runtime-reliability`](runtime-reliability/) | Design and review runtime reliability for long-running services, workers, CLIs, daemons, and networked systems. Use when implementing health checks, graceful shutdown, timeouts, retries, backoff, idempotency, queues, resource limits, observability, or when the user mentions reliability / runtime / health check / retry / timeout / worker / 稳定性. |
 | [`rust-style`](rust-style/) | Apply Rust idioms and coding standards for idiomatic, safe, maintainable code. Use when writing, refactoring, or reviewing Rust code, Cargo projects, or when the user mentions Rust style / idioms / clippy / rustfmt / nextest / cargo deny. General readability rules defer to clean-code; this skill owns Rust-specific rules. |
 | [`secure-coding`](secure-coding/) | Apply practical secure coding checks for application code, scripts, APIs, services, and automation. Use when writing or reviewing code that handles user input, authentication, authorization, secrets, files, shell commands, SQL/queries, network calls, logs, dependencies, or when the user mentions security / secure coding / 安全 / 漏洞 / 密钥. |
@@ -132,7 +148,10 @@ skill-name/
 | 写 Rust | `clean-code` + `rust-style` + `testing` + `secure-coding` |
 | 写 C++ | `clean-code` + `cpp-style` + `testing` |
 | 设计/修改 API | `api-design` + `secure-coding` + `testing` + `docs-style` |
-| 服务 / Worker | `runtime-reliability` + `secure-coding` + `testing` + `ci-quality` |
+| 服务 / Worker | `runtime-reliability` + `observability` + `secure-coding` + `testing` + `ci-quality` |
+| 性能优化 | `performance` + `observability` + `testing` |
+| 重构 | `refactoring` + `testing` + `clean-code` + 对应语言 `*-style` |
+| 依赖变更 | `dependency-management` + `secure-coding` + `ci-quality` |
 | 审 PR / diff | `code-review` + `clean-code` + `testing` + `secure-coding` + `ci-quality` |
 | 排查 bug | `debugging` + `testing` |
 | 提 PR | `github-flow` + `commit-message` + `ci-quality` |
@@ -146,6 +165,10 @@ skill-name/
 - 「按 `api-design` 设计这个接口」
 - 「按 `python-style` 写这个模块」
 - 「按 `debugging` 帮我排查这个失败」
+- 「按 `performance` 优化这条慢路径」
+- 「按 `refactoring` 安全重构这个模块」
+- 「按 `observability` 补齐日志和指标」
+- 「按 `dependency-management` 审查这次依赖升级」
 - 「按 `development-workflow` 实现这个功能」
 - 「按 `docs-style` 更新 README 和 ADR」
 - 「按 `runtime-reliability` 检查这个 worker」

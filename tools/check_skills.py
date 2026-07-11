@@ -3,6 +3,8 @@ from pathlib import Path
 import re
 import sys
 
+import catalog_skills
+
 
 ROOT = Path(__file__).resolve().parents[1]
 README = (ROOT / "README.md").read_text(encoding="utf-8")
@@ -20,6 +22,9 @@ def main() -> int:
 
     skill_dirs = sorted(p for p in ROOT.iterdir() if (p / "SKILL.md").is_file())
     skill_names = [p.name for p in skill_dirs]
+
+    if not catalog_skills.check_readme():
+        error("README.md skills catalog is out of date; run `make catalog`")
 
     for skill_dir in skill_dirs:
         skill = skill_dir.name

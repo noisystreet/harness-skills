@@ -44,6 +44,12 @@ description: >-
 - [templates/ADR.md](templates/ADR.md)
 - [templates/PULL_REQUEST_TEMPLATE.md](templates/PULL_REQUEST_TEMPLATE.md)
 - [templates/SECURITY.md](templates/SECURITY.md)
+- [templates/CONTRIBUTING.md](templates/CONTRIBUTING.md)
+- [templates/CHANGELOG.md](templates/CHANGELOG.md)
+- [templates/env.example](templates/env.example) → 复制为 `.env.example`
+- [templates/editorconfig](templates/editorconfig) → 复制为 `.editorconfig`
+- [templates/pre-commit-config.yaml](templates/pre-commit-config.yaml) → 复制为 `.pre-commit-config.yaml`
+- [templates/github-actions-ci.yml](templates/github-actions-ci.yml) → 复制为 `.github/workflows/ci.yml`
 
 ## 推荐组合
 

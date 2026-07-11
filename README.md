@@ -30,7 +30,8 @@ harness-skills/
 │   ├── SKILL.md
 │   └── reference.md
 ├── ci-quality/           # CI / pre-commit / 质量门禁
-│   └── SKILL.md
+│   ├── SKILL.md
+│   └── examples.md
 ├── code-review/          # 代码审查流程与输出格式
 │   ├── SKILL.md
 │   └── examples.md
@@ -53,17 +54,24 @@ harness-skills/
 │       └── pr-hotfix.md
 ├── project-bootstrap/    # 新项目初始化建议
 │   ├── SKILL.md
-│   └── templates/        # AGENTS / 架构 / ADR / PR / 安全模板
+│   └── templates/        # AGENTS / 架构 / ADR / PR / 安全 / 贡献 / CI 模板
 │       ├── AGENTS.md
 │       ├── ARCHITECTURE.md
 │       ├── ADR.md
 │       ├── PULL_REQUEST_TEMPLATE.md
-│       └── SECURITY.md
+│       ├── SECURITY.md
+│       ├── CONTRIBUTING.md
+│       ├── CHANGELOG.md
+│       ├── env.example
+│       ├── editorconfig
+│       ├── pre-commit-config.yaml
+│       └── github-actions-ci.yml
 ├── runtime-reliability/  # 服务/Worker 运行时可靠性
 │   ├── SKILL.md
 │   └── examples.md
 ├── secure-coding/        # 通用安全编码基线
-│   └── SKILL.md
+│   ├── SKILL.md
+│   └── examples.md
 ├── rust-style/           # Rust 编程规范
 │   ├── SKILL.md
 │   └── reference.md
@@ -203,6 +211,7 @@ make list-trae-cn
 校验 skill 元数据与 README：
 
 ```bash
+make help
 make check
 ```
 

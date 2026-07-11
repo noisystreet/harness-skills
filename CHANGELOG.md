@@ -9,6 +9,9 @@ and this project uses semantic versioning when releases are created.
 
 ### Added
 
+- Added `make help` as the default Makefile target listing available commands.
+- Added examples for `secure-coding` and `ci-quality`.
+- Expanded `project-bootstrap` templates with CONTRIBUTING, CHANGELOG, env example, EditorConfig, pre-commit, and GitHub Actions CI starters.
 - Added Makefile targets for Trae global skill install: `install-trae`, `install-trae-cn`, and matching list/uninstall commands.
 - Added reference guides for `clean-code`, `rust-style`, `cpp-style`, and `python-style`.
 - Added `make catalog` to regenerate the README skills catalog from `SKILL.md` metadata.

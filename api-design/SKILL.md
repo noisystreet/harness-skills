@@ -12,6 +12,8 @@ description: >-
 
 API 是长期契约。优先保持清晰、可演进、可测试、可文档化。
 
+更多接口设计样例见 [examples.md](examples.md)。
+
 ## 设计顺序
 
 1. 明确消费者：前端、外部客户、内部服务、CLI、SDK

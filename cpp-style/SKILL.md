@@ -10,7 +10,7 @@ description: >-
 
 # C++ 编程规范
 
-以 Modern C++（默认 C++17/20，跟随项目）为准：RAII、类型安全、可读性优先。新项目强烈推荐 CMake + clang-format。  
+以 Modern C++（默认 C++17/20，跟随项目）为准：RAII、类型安全、可读性优先。新项目强烈推荐 CMake + clang-format。
 **命名意图、隐式状态、函数拆分等通用规则** → 见 `clean-code`。本文件只定 C++ 特例。
 
 ## 硬规则（默认）

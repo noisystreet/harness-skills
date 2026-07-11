@@ -9,6 +9,10 @@ and this project uses semantic versioning when releases are created.
 
 ### Added
 
+- Added repository `.pre-commit-config.yaml` with generic file checks, private key detection, and `make check`.
+- Added GitHub Actions CI workflow for `make check`, checker compilation, and pre-commit.
+- Added `CONTRIBUTING.md` with skill authoring and validation guidance.
+- Added examples for `api-design` and `runtime-reliability`.
 - Initialized this directory as a git repository.
 - Added MIT `LICENSE`.
 - Added `CHANGELOG.md` to track future skill changes.
@@ -23,3 +27,4 @@ and this project uses semantic versioning when releases are created.
 - Renamed the project presentation to Harness Skills (`harness-skills`).
 - Added README badges for license, skill count, checks, AI agent usage, and the GitHub repository.
 - Strengthened `ci-quality` and `project-bootstrap` to strongly recommend pre-commit hooks.
+- Switched the README check badge to the GitHub Actions CI workflow.

@@ -16,11 +16,11 @@ What did we choose?
 
 Positive:
 
-- 
+-
 
 Negative / trade-offs:
 
-- 
+-
 
 ## Alternatives Considered
 

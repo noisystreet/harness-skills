@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Skills](https://img.shields.io/badge/skills-16-brightgreen.svg)](README.md)
-[![make check](https://img.shields.io/badge/make%20check-passing-brightgreen.svg)](Makefile)
+[![CI](https://github.com/noisystreet/harness-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/noisystreet/harness-skills/actions/workflows/ci.yml)
 [![AI Agents](https://img.shields.io/badge/AI%20Agents-Harness%20Skills-purple.svg)](README.md)
 [![GitHub repo](https://img.shields.io/badge/GitHub-noisystreet%2Fharness--skills-black.svg)](https://github.com/noisystreet/harness-skills)
 
@@ -12,14 +12,20 @@
 
 ```text
 harness-skills/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 ├── .gitignore
+├── .pre-commit-config.yaml
 ├── AGENTS.md
 ├── CHANGELOG.md
+├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
 ├── Makefile              # 安装 / 卸载 / 查看 / 校验 skill
 ├── api-design/           # API 契约、错误语义、分页、兼容性
-│   └── SKILL.md
+│   ├── SKILL.md
+│   └── examples.md
 ├── clean-code/           # 跨语言通用编程规范
 │   └── SKILL.md
 ├── ci-quality/           # CI / pre-commit / 质量门禁
@@ -53,7 +59,8 @@ harness-skills/
 │       ├── PULL_REQUEST_TEMPLATE.md
 │       └── SECURITY.md
 ├── runtime-reliability/  # 服务/Worker 运行时可靠性
-│   └── SKILL.md
+│   ├── SKILL.md
+│   └── examples.md
 ├── secure-coding/        # 通用安全编码基线
 │   └── SKILL.md
 ├── rust-style/           # Rust 编程规范

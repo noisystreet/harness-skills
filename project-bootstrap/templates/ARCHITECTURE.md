@@ -6,11 +6,11 @@ Describe what the project does and who it serves.
 
 ## Goals
 
-- 
+-
 
 ## Non-Goals
 
-- 
+-
 
 ## System Overview
 

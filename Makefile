@@ -4,7 +4,7 @@ TRAE_CN_SKILLS_DIR ?= $(HOME)/.trae-cn/skills
 SKILLS := $(patsubst %/SKILL.md,%,$(wildcard */SKILL.md))
 
 .DEFAULT_GOAL := help
-.PHONY: help install uninstall list catalog check cut-changelog release-notes release
+.PHONY: help install uninstall list catalog check cut-changelog release-notes release release-pr release-tag
 .PHONY: install-trae uninstall-trae list-trae
 .PHONY: install-trae-cn uninstall-trae-cn list-trae-cn
 
@@ -85,8 +85,9 @@ release-notes: ## Print CHANGELOG notes for VERSION=x.y.z
 	@test -n "$(VERSION)" || (echo "Usage: make release-notes VERSION=0.1.0"; exit 1)
 	@python3 tools/cut_changelog.py extract --version "$(VERSION)"
 
-release: ## Cut changelog, check, commit, and tag vVERSION
+release: ## Cut changelog, check, commit, and tag vVERSION (direct-push repos only)
 	@test -n "$(VERSION)" || (echo "Usage: make release VERSION=0.1.0"; exit 1)
+	@echo "Note: if main is PR-protected, use: make release-pr VERSION=$(VERSION)"
 	@python3 tools/cut_changelog.py cut --version "$(VERSION)"
 	@$(MAKE) --no-print-directory check
 	@git add CHANGELOG.md
@@ -98,3 +99,11 @@ release: ## Cut changelog, check, commit, and tag vVERSION
 	@git tag -a "v$(VERSION)" -m "v$(VERSION)"
 	@echo "Created commit and tag v$(VERSION)"
 	@echo "Publish with: git push origin HEAD && git push origin v$(VERSION)"
+
+release-pr: ## Cut changelog on release/vVERSION and open a PR (for protected main)
+	@test -n "$(VERSION)" || (echo "Usage: make release-pr VERSION=0.2.0"; exit 1)
+	@python3 tools/release_flow.py pr --version "$(VERSION)"
+
+release-tag: ## Create annotated tag vVERSION on synced main after the release PR merges
+	@test -n "$(VERSION)" || (echo "Usage: make release-tag VERSION=0.2.0"; exit 1)
+	@python3 tools/release_flow.py tag --version "$(VERSION)" $(if $(PUSH),--push,)

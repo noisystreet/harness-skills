@@ -69,15 +69,20 @@ templates/examples, and user-specific absolute paths.
 
 ## Releases
 
-1. Record user-visible changes under `CHANGELOG.md` `[Unreleased]`.
-2. On `main` after merge:
-   ```bash
-   make release VERSION=x.y.z
-   git push origin HEAD
-   git push origin vx.y.z
-   ```
-3. Pushing the `v*` tag creates a GitHub Release whose body is extracted from
-   that CHANGELOG section.
+Default flow for this repository (protected `main`):
+
+```bash
+make release-pr VERSION=x.y.z
+# merge the PR, then:
+git checkout main && git pull --ff-only origin main
+make release-tag VERSION=x.y.z PUSH=1
+```
+
+`make check` also enforces:
+
+- every skill has non-empty `examples.md` and `reference.md`
+- `SKILL.md` links to both files
+- README skills badge count matches the number of skills
 
 ## Commit Messages
 

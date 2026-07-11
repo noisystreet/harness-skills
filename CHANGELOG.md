@@ -9,6 +9,8 @@ and this project uses semantic versioning when releases are created.
 
 ### Added
 
+- Added `make release-pr` / `make release-tag` for protected-main releases, and tightened `make check` for examples/reference links plus README skill-count badge.
+
 ### Changed
 
 ### Fixed

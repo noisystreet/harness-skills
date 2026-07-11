@@ -17,7 +17,8 @@
 ├── tools/check_skills.py       # repository validation
 ├── tools/catalog_skills.py     # README catalog generation
 ├── tools/cut_changelog.py      # changelog cutover / release notes extract
-├── Makefile                    # install/list/check/catalog/release
+├── tools/release_flow.py       # protected-main release PR/tag helpers
+├── Makefile                    # install/list/check/catalog/release-pr/release-tag
 └── README.md                   # catalog and usage
 ```
 
@@ -33,12 +34,12 @@ make install
 
 Use `make list` to confirm global links.
 
-To cut a release from `[Unreleased]`:
+To cut a release when `main` is PR-protected:
 
 ```bash
-make release VERSION=x.y.z
-git push origin HEAD
-git push origin vx.y.z
+make release-pr VERSION=x.y.z
+# after merge:
+make release-tag VERSION=x.y.z PUSH=1
 ```
 
 ## Skill Authoring Rules

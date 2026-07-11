@@ -15,14 +15,16 @@ description: >-
 
 | 任务 | 组合 |
 |------|------|
-| 新项目初始化 | `project-bootstrap` → 对应语言 `*-style` → `testing` → `secure-coding` → `ci-quality` |
+| 新项目初始化 | `project-bootstrap` → 对应语言 `*-style` → `testing` → `secure-coding` → `dependency-management` → `ci-quality` |
 | 写新功能 | `clean-code` → 对应语言 `*-style` → `testing` → `secure-coding` |
 | 设计/修改 API | `api-design` → `secure-coding` → `testing` → `docs-style` |
-| 长期运行服务/Worker | `runtime-reliability` → `secure-coding` → `testing` → `ci-quality` |
+| 长期运行服务/Worker | `runtime-reliability` → `observability` → `secure-coding` → `testing` → `ci-quality` |
 | 修 bug | `debugging` → `testing` → `clean-code` → 对应语言 `*-style` |
-| 重构 | `clean-code` → 对应语言 `*-style` → `testing` |
+| 性能问题 / 优化 | `performance` → `observability` → `testing` → `debugging` |
+| 重构 | `refactoring` → `testing` → `clean-code` → 对应语言 `*-style` |
+| 依赖新增/升级 | `dependency-management` → `secure-coding` → `ci-quality` → `testing` |
 | 审 PR / diff | `code-review` → `testing` → `secure-coding` → `ci-quality` |
-| 配 CI / 质量门禁 | `ci-quality` → `testing` → `secure-coding` |
+| 配 CI / 质量门禁 | `ci-quality` → `testing` → `secure-coding` → `dependency-management` |
 | 写/改文档 | `docs-style` → `project-bootstrap`（新项目） |
 | 提交 / 开 PR | `commit-message` → `github-flow` |
 
@@ -34,9 +36,13 @@ description: >-
 4. 有安全、外部输入、权限、密钥、网络、文件或 shell 调用时加入 `secure-coding`
 5. 涉及接口、SDK、CLI 参数、webhook、错误语义、分页或版本兼容时加入 `api-design`
 6. 涉及长期运行服务、worker、队列、健康检查、超时、重试或资源上限时加入 `runtime-reliability`
-7. 有行为变化时加入 `testing`
-8. 涉及 README、架构、ADR、CHANGELOG、AGENTS 或迁移说明时加入 `docs-style`
-9. 涉及协作、提交、PR 时加入 `commit-message` 和 `github-flow`
+7. 涉及日志/指标/追踪、SLO、告警或排障关联 id 时加入 `observability`
+8. 涉及变慢、吞吐、内存/CPU、基准或剖析时加入 `performance`
+9. 涉及新增/升级/审计/移除依赖或锁文件时加入 `dependency-management`
+10. 涉及结构调整且声称行为不变时加入 `refactoring`（不要只靠 `clean-code`）
+11. 有行为变化时加入 `testing`
+12. 涉及 README、架构、ADR、CHANGELOG、AGENTS 或迁移说明时加入 `docs-style`
+13. 涉及协作、提交、PR 时加入 `commit-message` 和 `github-flow`
 
 ## 常见流程
 
@@ -66,6 +72,19 @@ description: >-
 2. 用 `testing` 先补回归测试或最小复现
 3. 修复时遵循 `clean-code` 和语言 `*-style`
 4. 用 `code-review` 视角检查是否引入回归
+
+### 重构
+
+1. 用 `refactoring` 确认行为不变、安全网和小步切片
+2. 用 `testing` 补表征测试或锁住关键路径
+3. 用 `clean-code` 与语言 `*-style` 完成结构整理
+4. 若公共 API 受影响，用 `api-design` / `docs-style` 处理兼容与文档
+
+### 性能优化
+
+1. 用 `performance` 定义预算、测量并定位热点
+2. 用 `observability` 确认生产信号能支持定位
+3. 改动后用同一方法复测，并用 `testing` 防行为回归
 
 ### 审查改动
 

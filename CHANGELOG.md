@@ -9,6 +9,7 @@ and this project uses semantic versioning when releases are created.
 
 ### Added
 
+- Added `observability`, `performance`, `dependency-management`, and `refactoring` skills with examples.
 - Added `make help` as the default Makefile target listing available commands.
 - Added examples for `secure-coding` and `ci-quality`.
 - Expanded `project-bootstrap` templates with CONTRIBUTING, CHANGELOG, env example, EditorConfig, pre-commit, and GitHub Actions CI starters.

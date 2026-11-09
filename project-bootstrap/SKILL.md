@@ -53,6 +53,7 @@ description: >-
 - [templates/env.example](templates/env.example) → 复制为 `.env.example`
 - [templates/editorconfig](templates/editorconfig) → 复制为 `.editorconfig`
 - [templates/check_markdown_width.py](templates/check_markdown_width.py) → 复制为 `tools/check_markdown_width.py`
+- [templates/clang-tidy](templates/clang-tidy) → 复制为 `.clang-tidy`
 - [templates/pre-commit-config.yaml](templates/pre-commit-config.yaml) → 复制为 `.pre-commit-config.yaml`
 - [templates/github-actions-ci.yml](templates/github-actions-ci.yml) → 复制为 `.github/workflows/ci.yml`
 
@@ -113,13 +114,14 @@ cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 cmake --build build
 ctest --test-dir build --output-on-failure
 clang-format -i <files>
-clang-tidy <files> -p build
+run-clang-tidy -p build
 ```
 
 建议：
 
-- 新项目强烈推荐 CMake + `.clang-format`
+- 新项目强烈推荐 CMake + `.clang-format` + `.clang-tidy`
 - 开启 `compile_commands.json` 供 clangd/clang-tidy 使用
+- clang-tidy 放进 `make check` 或 CI，并在 CI 固定 LLVM 版本；不要放进 pre-commit（依赖完整构建，太慢）
 - 测试使用 CTest（具体测试框架按项目选择）
 - 不把构建产物提交到仓库
 

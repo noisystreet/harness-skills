@@ -4,7 +4,8 @@
 
 - [uv](https://docs.astral.sh/uv/) / [ruff](https://docs.astral.sh/ruff/) / [pytest](https://docs.pytest.org/) - Python defaults.
 - [Cargo Book](https://doc.rust-lang.org/cargo/) / [Clippy](https://doc.rust-lang.org/clippy/) / [nextest](https://nexte.st/) - Rust defaults.
-- [CMake](https://cmake.org/cmake/help/latest/) / [clang-format](https://clang.llvm.org/docs/ClangFormat.html) - C++ defaults.
+- [CMake](https://cmake.org/cmake/help/latest/) / [clang-format](https://clang.llvm.org/docs/ClangFormat.html) /
+  [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) - C++ defaults.
 - [pre-commit](https://pre-commit.com/) / [EditorConfig](https://editorconfig.org/) - editor and hook baselines.
 - [Keep a Changelog](https://keepachangelog.com/) / [ADR](https://adr.github.io/) - docs baselines.
 
@@ -32,3 +33,5 @@ Agent 读取、grep 和 diff 都按行处理。一行塞满整段会让输出被
 ## Caveats
 
 - Existing organizations may mandate different scaffolds; adapt rather than fight local standards on day one.
+- Clang tooling behavior differs across LLVM versions; pin the toolchain in CI and grow `.clang-tidy`
+  checks in reviewable increments.

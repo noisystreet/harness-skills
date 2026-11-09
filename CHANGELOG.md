@@ -14,6 +14,7 @@ and this project uses semantic versioning when releases are created.
 - Added daily Git hygiene guidance and external references to `github-flow/reference.md`.
 - Added `make release-pr` / `make release-tag` for protected-main releases, and tightened `make check` for examples/reference links plus README skill-count badge.
 - Added a Markdown line-width checker template and pre-commit hook to `project-bootstrap`.
+- Added a `.clang-tidy` baseline template and C++ static-analysis guidance to `project-bootstrap`.
 
 ### Changed
 

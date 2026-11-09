@@ -13,6 +13,7 @@ and this project uses semantic versioning when releases are created.
 - Added latest-release badge and GitHub Release install notes (`tools/release_install_notes.md`).
 - Added daily Git hygiene guidance and external references to `github-flow/reference.md`.
 - Added `make release-pr` / `make release-tag` for protected-main releases, and tightened `make check` for examples/reference links plus README skill-count badge.
+- Added a Markdown line-width checker template and pre-commit hook to `project-bootstrap`.
 
 ### Changed
 

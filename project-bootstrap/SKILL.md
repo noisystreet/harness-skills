@@ -39,6 +39,7 @@ description: >-
 - `.env.example` + `.gitignore`：列出配置项，确保 `.env` 不入库
 - `.editorconfig`：统一缩进、换行符和 UTF-8
 - `.pre-commit-config.yaml`：提交前运行快速格式化、lint、密钥扫描和 commit-msg 检查（强烈推荐）
+- `tools/check_markdown_width.py`：Markdown 行宽检查（默认 120 显示列），避免文档出现超长行
 
 可直接参考模板：
 
@@ -51,6 +52,7 @@ description: >-
 - [templates/CHANGELOG.md](templates/CHANGELOG.md)
 - [templates/env.example](templates/env.example) → 复制为 `.env.example`
 - [templates/editorconfig](templates/editorconfig) → 复制为 `.editorconfig`
+- [templates/check_markdown_width.py](templates/check_markdown_width.py) → 复制为 `tools/check_markdown_width.py`
 - [templates/pre-commit-config.yaml](templates/pre-commit-config.yaml) → 复制为 `.pre-commit-config.yaml`
 - [templates/github-actions-ci.yml](templates/github-actions-ci.yml) → 复制为 `.github/workflows/ci.yml`
 
@@ -133,6 +135,8 @@ just check
 ```
 
 没有 `just` 时可用 `make` 或项目既有脚本。重点是让 Agent 和人都知道该跑什么。
+`check` 同时覆盖代码与文档：把 Markdown 行宽检查挂进 `check` 或 pre-commit，
+避免文档出现超长行影响 diff 和 Agent 读取。
 
 ## 配置与依赖策略
 
